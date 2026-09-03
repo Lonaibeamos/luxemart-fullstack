@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
 
-            const res = await fetch("http://localhost/smart-ecommerce-app/Backend/api/login.php", {
+            const res = await fetch("https://luxemart.rf.gd/Backend/api/login.php", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -138,7 +138,7 @@ window.onload = function () {
 
                 // 2. Send to backend (same auth system)
                 const backendRes = await fetch(
-                    "http://localhost/smart-ecommerce-app/Backend/api/login.php",
+                    "https://luxemart.rf.gd/Backend/api/login.php",
                     {
                         method: "POST",
                         headers: {

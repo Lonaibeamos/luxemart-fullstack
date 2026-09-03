@@ -61,7 +61,7 @@ signupForm.addEventListener("submit", async (e) => {
     formData.append("profile_img", profile_img);
 
     try {
-        const res = await fetch("http://localhost/smart-ecommerce-app/Backend/api/admin_signup.php", {
+        const res = await fetch("https://luxemart.rf.gd/Backend/api/admin_signup.php", {
             method: "POST",
             body: formData
         });
@@ -104,7 +104,7 @@ loginForm.addEventListener("submit", async (e) => {
 
     try {
         const res = await fetch(
-            "http://localhost/smart-ecommerce-app/Backend/api/admin_login.php",
+            "https://luxemart.rf.gd/Backend/api/admin_login.php",
             {
                 method: "POST",
                 body: formData

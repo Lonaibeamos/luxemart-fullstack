@@ -99,7 +99,7 @@ pay_btn.addEventListener("click", async () => {
         pay_btn.innerHTML = "Processing...";
 
         const res = await fetch(
-            "http://localhost/smart-ecommerce-app/Backend/api/orders.php",
+            "https://luxemart.rf.gd/Backend/api/orders.php",
             {
                 method: "POST",
                 body: formData
@@ -122,7 +122,7 @@ pay_btn.addEventListener("click", async () => {
             transactionData.append("payment_method", paymentMethod);
 
             const txRes = await fetch(
-                "http://localhost/smart-ecommerce-app/Backend/api/transactions.php",
+                "https://luxemart.rf.gd/Backend/api/transactions.php",
                 {
                     method: "POST",
                     body: transactionData
@@ -136,7 +136,7 @@ pay_btn.addEventListener("click", async () => {
 
             if (txData.status === "success") {
 
-                fetch(`http://localhost/smart-ecommerce-app/Backend/api/get_transaction.php?user_id=${userId}`)
+                fetch(`https://luxemart.rf.gd/Backend/api/get_transaction.php?user_id=${userId}`)
                 .then(res => res.json())
                 .then(transactionInfo => {
 
@@ -246,7 +246,7 @@ async function loadCheckoutCart() {
     try {
 
         const res = await fetch(
-            "http://localhost/smart-ecommerce-app/Backend/api/get_cart.php?user_id=" + userId
+            "https://luxemart.rf.gd/Backend/api/get_cart.php?user_id=" + userId
         );
 
         const cart = await res.json();

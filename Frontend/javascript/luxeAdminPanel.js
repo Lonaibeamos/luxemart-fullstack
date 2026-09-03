@@ -78,7 +78,7 @@ if (saveProductBtn) {
         try {
 
             const res = await fetch(
-                "http://localhost/smart-ecommerce-app/Backend/api/add_product.php",
+                "https://luxemart.rf.gd/Backend/api/add_product.php",
                 {
                     method: "POST",
                     body: formData
@@ -181,7 +181,7 @@ let allDashboardData = [];
 let allRevenuesData = {};
 let filteredProducts = [];
 
-fetch("http://localhost/smart-ecommerce-app/Backend/api/dashboard.php")
+fetch("https://luxemart.rf.gd/Backend/api/dashboard.php")
 .then(res => res.json())
 .then(data => {
 
@@ -455,7 +455,7 @@ function createDashboardChart(products) {
 
 function loadDashboardChart() {
 
-    fetch("http://localhost/smart-ecommerce-app/Backend/api/products.php")
+    fetch("https://luxemart.rf.gd/Backend/api/products.php")
     .then(res => res.json())
     .then(products => {
 
@@ -470,7 +470,7 @@ function loadDashboardChart() {
 }
 
 // For Orders
-fetch("http://localhost/smart-ecommerce-app/Backend/api/get_orders.php")
+fetch("https://luxemart.rf.gd/Backend/api/get_orders.php")
 .then(res => res.json())
 .then(orders => {
 
@@ -621,7 +621,7 @@ function displayOrdersData(orders){
 
 
 // For Inventory btn
-fetch("http://localhost/smart-ecommerce-app/Backend/api/products.php")
+fetch("https://luxemart.rf.gd/Backend/api/products.php")
 .then(res => res.json())
 .then(products => {
 
@@ -734,7 +734,7 @@ function setupInventorySearch() {
 
 
 // For Customer btn 
-fetch("http://localhost/smart-ecommerce-app/Backend/api/get_customers.php")
+fetch("https://luxemart.rf.gd/Backend/api/get_customers.php")
 .then(res => res.json())
 .then(customers => {
 
@@ -874,7 +874,7 @@ function totalNumberOfUser(customers){
 
 
 // For Reveneue
-fetch("http://localhost/smart-ecommerce-app/Backend/api/admin_revneue.php")
+fetch("https://luxemart.rf.gd/Backend/api/admin_revneue.php")
 .then(res => res.json())
 .then(data => {
 

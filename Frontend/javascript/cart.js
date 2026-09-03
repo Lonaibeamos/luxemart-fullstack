@@ -20,7 +20,7 @@ async function loadCheckoutCart() {
     try {
 
         const res = await fetch(
-            "http://localhost/smart-ecommerce-app/Backend/api/get_cart.php?user_id=" + userId
+            "https://luxemart.rf.gd/Backend/api/get_cart.php?user_id=" + userId
         );
 
         const data = await res.json();
@@ -109,7 +109,7 @@ function displayCartItems() {
 
 window.increaseQuantity = function(cartId) {
 
-    fetch("http://localhost/smart-ecommerce-app/Backend/api/update_cart_quantity.php", {
+    fetch("https://luxemart.rf.gd/Backend/api/update_cart_quantity.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -149,7 +149,7 @@ window.increaseQuantity = function(cartId) {
 
 window.decreaseQuantity = function(cartId) {
 
-    fetch("http://localhost/smart-ecommerce-app/Backend/api/update_cart_quantity.php", {
+    fetch("https://luxemart.rf.gd/Backend/api/update_cart_quantity.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -179,7 +179,7 @@ window.removeItem = async function(cartId) {
     try {
 
         const res = await fetch(
-            "http://localhost/smart-ecommerce-app/Backend/api/delete_cart_item.php",
+            "https://luxemart.rf.gd/Backend/api/delete_cart_item.php",
             {
                 method: "POST",
                 headers: {

@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const profileImg = '../assets/img/luxeProductCollection/profile img.jpg';
 
         try {
-            const res = await fetch("http://localhost/smart-ecommerce-app/Backend/api/auth.php", {
+            const res = await fetch("https://luxemart.rf.gd/Backend/api/auth.php", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -193,7 +193,7 @@ window.onload = function () {
                 console.log("GOOGLE USER:", user);
 
                 // SEND TO YOUR BACKEND (IMPORTANT)
-                const backendRes = await fetch("http://localhost/smart-ecommerce-app/Backend/api/auth.php", {
+                const backendRes = await fetch("https://luxemart.rf.gd/Backend/api/auth.php", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"

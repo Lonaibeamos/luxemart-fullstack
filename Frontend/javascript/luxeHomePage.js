@@ -74,7 +74,7 @@ document.getElementById("cartIcon").addEventListener('click' , ()=>{
 })
 let allProducts = [];
 
-fetch("http://localhost/smart-ecommerce-app/Backend/api/products.php")
+fetch("https://luxemart.rf.gd/Backend/api/products.php")
 .then(res => res.json())
 .then(data => {
 
@@ -173,7 +173,7 @@ async function updateCartNotification() {
     try {
 
         const res = await fetch(
-            `http://localhost/smart-ecommerce-app/Backend/api/get_cart.php?user_id=${userId}`
+            `https://luxemart.rf.gd/Backend/api/get_cart.php?user_id=${userId}`
         );
 
         const cartItems = await res.json();
@@ -228,7 +228,7 @@ document.addEventListener("click", async (e) => {
     try {
 
         const res = await fetch(
-            "http://localhost/smart-ecommerce-app/Backend/api/add_cart.php",
+            "https://luxemart.rf.gd/Backend/api/add_cart.php",
             {
                 method: "POST",
                 headers: {
@@ -389,7 +389,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!userId) return;
 
-    fetch(`http://localhost/smart-ecommerce-app/Backend/api/get_user_dashboard_full.php?user_id=${userId}`)
+    fetch(`https://luxemart.rf.gd/Backend/api/get_user_dashboard_full.php?user_id=${userId}`)
         .then(res => res.json())
         .then(data => {
 
@@ -491,7 +491,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     try {
         const res = await fetch(
-            "http://localhost/smart-ecommerce-app/Backend/api/get_customers.php"
+            "https://luxemart.rf.gd/Backend/api/get_customers.php"
         );
 
         const data = await res.json();
@@ -554,7 +554,7 @@ document.querySelector(".saveChangeBtn").addEventListener("click", async () => {
     }
 
     const res = await fetch(
-        "http://localhost/smart-ecommerce-app/Backend/api/update_user.php",
+        "https://luxemart.rf.gd/Backend/api/update_user.php",
         {
             method: "POST",
             headers: {

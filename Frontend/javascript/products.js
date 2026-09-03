@@ -4,7 +4,7 @@ let cart = JSON.parse(localStorage.getItem("cart")) || [];
 // ============================
 // 1. LOAD PRODUCTS
 // ============================
-fetch("http://localhost/smart-ecommerce-app/Backend/api/products.php")
+fetch("https://luxemart.rf.gd/Backend/api/products.php")
 .then(res => res.json())
 .then(products => {
 
@@ -95,7 +95,7 @@ window.addToCart = async function(productId){
     try{
 
         const res = await fetch(
-            "http://localhost/smart-ecommerce-app/Backend/api/add_cart.php",
+            "https://luxemart.rf.gd/Backend/api/add_cart.php",
             {
                 method: "POST",
                 headers:{
@@ -320,7 +320,7 @@ function displayProductDetails(){
         try {
 
             const res = await fetch(
-                "http://localhost/smart-ecommerce-app/Backend/api/add_cart.php",
+                "https://luxemart.rf.gd/Backend/api/add_cart.php",
                 {
                     method: "POST",
                     headers: {
@@ -397,7 +397,7 @@ async function updateCartNotificationFromBackend() {
     try {
 
         const res = await fetch(
-            "http://localhost/smart-ecommerce-app/Backend/api/get_cart.php?user_id=" + userId
+            "https://luxemart.rf.gd/Backend/api/get_cart.php?user_id=" + userId
         );
 
         const data = await res.json();

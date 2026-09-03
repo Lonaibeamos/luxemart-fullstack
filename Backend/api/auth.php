@@ -1,10 +1,13 @@
 <?php
 
     header("Content-Type: application/json");
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+    header("Access-Control-Allow-Headers: Content-Type");
     error_reporting(E_ALL);
     ini_set('display_errors', 1);
 
-    $conn = new mysqli("localhost", "root", "", "luxecommerce_db");
+    include "../config/luxe_database.php";
 
     if ($conn->connect_error) {
         exit(json_encode([
