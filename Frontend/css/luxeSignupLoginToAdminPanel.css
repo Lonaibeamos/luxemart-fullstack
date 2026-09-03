@@ -1,0 +1,306 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0f3c30;
+    padding: 20px;
+}
+
+#toastContainer {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.toast {
+    min-width: 260px;
+    padding: 15px 18px;
+    border-radius: 12px;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    animation: slideIn .3s ease;
+}
+
+.toast.success {
+    background: #0f2d25;
+    /* your black-green */
+}
+
+.toast.error {
+    background: #b91c1c;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.adminPanelSignupAndLoginContainer {
+    width: 100%;
+    max-width: 600px;
+}
+
+.adminPanelSignupAndLoginContainer>h2 {
+    color: white;
+    text-align: center;
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.adminPanelSignupAndLoginContainer>p {
+    text-align: center;
+    color: #8ee4af;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+}
+
+.adminSignUpLoginCards {
+    background: #f0f1f3cd;
+    border-radius: 24px;
+    padding: 35px;
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, .25);
+}
+
+.adminSignupLoginOptionBtns {
+    display: flex;
+    gap: 10px;
+    background: white;
+    padding: 6px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+.adminSignupLoginOptionBtns button {
+    flex: 1;
+    height: 35px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    background-color: white;
+    font-weight: 600;
+    color: #374151;
+    transition: .3s;
+}
+
+.adminLoginOptionBtn:hover ,
+.adminSignupOptionBtn:hover{
+    border: 1px solid #165544;
+}
+
+.adminLoginOptionBtn:focus,
+.adminSignupOptionBtn:focus {
+    background: #1c7960;
+    color: white;
+}
+
+.adminSignupContainer,
+.adminLoginContainer {
+    display: none;
+}
+
+.adminLoginContainer.show,
+.adminSignupContainer.show {
+    display: block;
+}
+
+.adminLoginContainer h2,
+.adminSignupContainer h2 {
+    color: #111827;
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.adminLoginContainer>p,
+.adminSignupContainer>p {
+    color: #6b7280;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.adminLoginForm,
+.adminSignupForm {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #111827;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+input {
+    width: 100%;
+    height: 55px;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    background: #f3f4f6;
+    padding: 0 16px;
+    font-size: 15px;
+}
+
+input::placeholder {
+    color: #9ca3af;
+}
+
+input:focus {
+    border: 2px solid #0f2d25;
+}
+
+.adminLoginUserPasswordHeaderContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.adminUserRoleContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.adminUserRoleContainer label {
+    margin-bottom: 8px;
+    color: #111827;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.adminUserRoleContainer select {
+    width: 100%;
+    height: 55px;
+
+    padding: 0 16px;
+
+    border: 1px solid #d8dde3;
+    border-radius: 12px;
+
+    background: white;
+
+    color: #111827;
+    font-size: 15px;
+    font-weight: 500;
+
+    cursor: pointer;
+    outline: none;
+
+    transition: .3s;
+}
+
+.adminUserRoleContainer select:hover {
+    border-color: #1c7960;
+}
+
+.adminUserRoleContainer select:focus {
+    border: 2px solid #1c7960;
+    box-shadow: 0 0 0 4px rgba(28, 121, 96, .12);
+}
+
+.adminUserRoleContainer option {
+    background: white;
+    color: #111827;
+    padding: 10px;
+}
+
+.adminUserRoleSelect {
+    position: relative;
+}
+
+.adminUserRoleSelect select {
+    appearance: none;
+    width: 100%;
+    height: 55px;
+
+    padding: 0 45px 0 16px;
+
+    border: 1px solid #d8dde3;
+    border-radius: 12px;
+
+    background: white;
+}
+
+.adminUserRoleSelect i {
+    position: absolute;
+    top: 50%;
+    right: 18px;
+    transform: translateY(-50%);
+    color: #1c7960;
+    pointer-events: none;
+}
+
+.adminLoginUserPasswordHeaderContainer p {
+    color: #21743f;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.adminLoginForm button,
+.adminSignupForm button {
+    width: 100%;
+    height: 55px;
+    border: none;
+    border-radius: 12px;
+    background: #0f2d25;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.adminLoginForm button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.adminLoginForm button:hover,
+.adminSignupForm button:hover {
+    opacity: .9;
+}
+
+@media(max-width:600px) {
+
+    .adminSignUpLoginCards {
+        padding: 25px;
+    }
+
+    .adminPanelSignupAndLoginContainer>h2 {
+        font-size: 34px;
+    }
+
+    .adminLoginContainer h2,
+    .adminSignupContainer h2 {
+        font-size: 24px;
+    }
+
+}

@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luxe E-commerce Website</title>
+    <link rel="stylesheet" href="../css/luxeHomePage.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="leftSection">
+        <img class="logoImg" src="../assets/img/luxeProductCollection/Luxe E-commerce.png" alt="luxe ecommerce logo" />
+        <!-- Logo name of the website -->
+        <p>LuxeCommerce</p>
+      </div>
+
+      <!-- middle menu -->
+      <div class="middleSection">
+        <nav>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#categories">Categories</a></li>
+            <li><a href="#deals">Deals</a></li>
+            <li><a href="#support">Support</a></li>
+          </ul>
+        </nav>
+      </div>
+
+
+      <!-- right menu -->
+      <div class="rightSection">
+        <div class="cartIcon" id="cartIcon">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <div class="cartNotification">0</div>
+        </div>
+        <div class="profileContainer" id="authContainer">
+          <button class="loginBtn" id="loginBtn">Login</button>
+          <button class="signupBtn" id="signupBtn">Signup</button>
+        </div>
+
+        <div class="userProfile" id="userProfile" style="display:none;">
+            <i class="fa-solid fa-user"></i>
+        </div>
+      </div>
+    </header>
+
+    <div class="profilePageConatiner" id="profileMenu">
+
+        <div class="userInfo">
+            <div class="userImg">
+                BA
+            </div>
+
+            <div class="userDescription">
+                <p id="userName">Beker Ali</p>
+                <p id="userEmail">abuka@gmail.com</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="profilePageBtns">
+
+            <div id="myProfileBtn">
+                <i class="fa-regular fa-user"></i>
+                <p>My Profile</p>
+            </div>
+
+            <div id="myOrdersBtn">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <p>My Orders</p>
+            </div>
+
+            <div id="settingBtn">
+                <i class="fa-solid fa-gear"></i>
+                <p>Account Settings</p>
+            </div>
+
+            <hr>
+
+            <div id="logoutBtn">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <p>Logout</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <section class="userProfilePageConatiner"  id="userProfilePageConatiner">
+        <div class="userProfilePageHeader">
+            <div class="userProfileInfoContainer">
+                <img src="" alt="">
+                <p class="userProfileName">Beker Ali</p>
+            </div>
+
+            <div class="userProfilePageCloseIcon">
+                <i class="fa-solid fa-x"></i>
+            </div>
+        </div>
+
+        <div class="userProfilePageOptionBtns">
+            <div class="userProfilePageOptionBtn_1" id="userProfileDashboardBtn">
+                <p>Dashboard</p>
+            </div>
+
+            <div class="userProfilePageOptionBtn_2" id="userProfileRecentBtn">
+                <p>Recent Orders</p>
+            </div>
+
+            <div class="userProfilePageOptionBtn_3" id="userProfileSettingBtn">
+                <p>Profile Settings</p>
+            </div>
+        </div>
+
+
+        <div class="userProfilePageOptionPages">
+            <div class="userProfilePageOption_1" id="userProfilePageOption_1">
+                <div class="userProfilePageDashboardCards">
+                    <div class="userProfilePageDashboardCard_1">
+                        <div class="userProfileDashboardCont_1">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                            <p>Total Orders</p>
+                        </div>
+
+                        <div class="userProfileOrderNumbers">
+                            <p>32</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="userProfilePageOption_2" id="userProfilePageOption_2">
+                <div class="userProfilePageOrderPageHeader">
+                    <p>Recent Orders</p>
+                </div>
+
+                <div class="userProfilePageOrderDetails">
+                    <!-- <div class="userProfileOrderPageCard">
+                        <div class="userProfileOrderPageCardImg">
+                            <img src="" alt="">
+                        </div>
+
+                        <div class="userProfileOrderpageCardDetails">
+                            <p>Order Id</p>
+                            <p>Product Name</p>
+                            <div class="userProfilePgaeOrderDateAndPrice">
+                                <p>Date of the product</p>
+                                <p>Product Price</p>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    
+                </div>
+            </div>
+
+            <div class="userProfilePageOption_3" id="userProfilePageOption_3">
+                <div class="userProfilePageSettingPageHeader">
+                    <p>Personal Information</p>
+                </div>
+
+                <div class="userProfilePageSettinngPersonalInfo">
+                    <div class="userProfilePageSettingNameAndEmail">
+                        <div class="personalName">
+                            <label for="userName">Full Name</label>
+                            <input type="text" name="" id="profileUserName">
+                        </div>
+
+                        <div class="personalEmail">
+                            <label for="userEmail">Email Address</label>
+                            <input type="email" name="" id="profileUserEmail">
+                        </div>
+                    </div>
+
+                    <div class="userProfileSettingPhoneNumber">
+                        <label for="userPhoneNumber">Phone Number</label>
+                        <input type="tel" name="" id="profileUserPhoneNumber">
+                    </div>
+                </div>
+
+                <div class="userProfilePageSettingPersonalPasword">
+                    <div class="userProfilepageSetingCurrentPassword">
+                        <label for="userCurrentPassword">Current Password</label>
+                        <input type="password" name="" id="userCurrentPassword" placeholder="***********">
+                    </div>
+
+                    <div class="userProfileSettingNewPassword">
+                        <label for="userNewPassword">New Password</label>
+                        <input type="password" name="" placeholder="Min . 8 Character" id="userNewPassword">
+                    </div>
+                </div>
+
+                <div class="userProfileSettingPageBtns">
+                    <button class="discardChangeBtn">Discard Changes</button>
+                    <button class="saveChangeBtn">Save Change</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="userPofilePageLogoutBtn">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <p>Logout</p>
+        </div>
+    </section>
+
+    <main>
+      <section id="home" class="container_1">
+        <h1 class="projectTitle">
+            Smart Tech for a Smarter Life
+        </h1>
+        <p class="projectDescription">
+          Explore cutting-edge electronics, from the latest gadgets to everyday essentials—all in one place.
+        </p>
+
+        <img src="" alt="" />
+
+        <div class="container_1Btn">
+          <button class="shopCollectionBtn" id="shopCollection">Shop Collection</button>
+        </div>
+      </section>
+
+      <section id="categories" class="container_2">
+
+        <div class="categoryCard">
+            <h2 class="cartegoryCardTitle">Luxe Categories</h2>
+            <p class="categoryExplanation">
+                Explore our wide range of electronics including smartphones, laptops, gaming gear, accessories, and more.
+            </p>
+        </div>
+
+        <div class="categoriesCardContainer">
+            <div class="categoriesCard_1 categoriesCard">
+                <img  src="../assets/img/luxeProductCollection/smart phone collection.jpg" alt="smartphone collection">
+                <div class="containerCardDescription">
+                    <h3>Smartphones</h3>
+                    <p class="test">
+                        Latest smartphones with powerful performance and modern design.
+                    </p>
+                </div>
+            </div>
+
+            <div class="categoriesCard_2 categoriesCard">
+                <img src="../assets/img/luxeProductCollection/computer collection.jpg" alt="computer collection">
+                <div class="containerCardDescription">
+                    <h3>Computers</h3>
+                    <p class="test">
+                        High-performance laptops and desktops for work and creativity.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="categoriesCard_3 categoriesCard">
+                <img src="../assets/img/luxeProductCollection/accessories collection.jpg" alt="accessories collection">
+                <div class="containerCardDescription">
+                    <h3>Accessories</h3>
+                    <p>
+                        Essential accessories to upgrade your daily tech experience.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="categoriesCard_4 categoriesCard">
+                <img src="../assets/img/luxeProductCollection/gaming collection.jpg" alt="gaming collection">
+                <div class="containerCardDescription">
+                    <h3>Gaming</h3>
+                    <p>
+                        Gaming gear built for speed, power, and immersion.
+                    </p>
+                </div>
+            </div>
+            <div class="categoriesCard_5 categoriesCard">
+                <img src="../assets/img/luxeProductCollection/watch collection.jpg" alt="watch collection">
+                <div class="containerCardDescription">
+                    <h3>Watches</h3>
+                    <p>
+                        Stylish and smart watches for every lifestyle.
+                    </p>
+                </div>
+            </div>
+            <div class="categoriesCard_6 categoriesCard">
+                <img src="../assets/img/luxeProductCollection/computer component collection.jpg" alt="computer component collection">
+                <div class="containerCardDescription">
+                    <h3>Computer Components</h3>
+                    <p>
+                        Quality PC parts for building and upgrading systems.
+                    </p>
+                </div>
+            </div>
+            <div class="categoriesCard_7 categoriesCard">
+                <img src="../assets/img/luxeProductCollection/audio device collection.jpg" alt="audio device collection">
+                <div class="containerCardDescription">
+                    <h3>Audio Devices</h3>
+                    <p>
+                        Clear sound with premium headphones and speakers.
+                    </p>
+                </div>
+            </div>
+        </div>
+      </section>
+
+      <section id="deals" class="container_3">
+        <h2 class="featuredProductsTitle">Featured Products</h2>
+
+        <div class="featuredProductCardContainer" id="featuredContainer">
+            <!-- <div class="featuredProduct_1 featuredProductCard">
+                <div class="featuredProductCardImg">
+                    <img src="../assets/img/luxeProductCollection" alt="">
+                </div>
+                <div class="featuredProductCardDescription">
+                    <p class="fPCCategory">
+                        SMARTPHONES
+                    </p>
+
+                    <p class="fPCName">
+                        Apple iPhone 15 Pro Max
+                    </p>
+
+                    <p class="fPCPrice">$0.00 <span class="fPCDiscount">$0.00</span></p>
+
+                    <button class="addingToCart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="featuredProduct_2 featuredProductCard">
+                <div class="featuredProductCardImg">
+                    <img src="../assets/img/sung-jinwoo-season-3840x2160-23604.jpg" alt="">
+                </div>
+                <div class="featuredProductCardDescription">
+                    <p class="fPCCategory">
+                        SMARTPHONES
+                    </p>
+
+                    <p class="fPCName">
+                        Samsung Galaxy S23 Ultra
+                    </p>
+
+                    <p class="fPCPrice">$0.00 <span class="fPCDiscount">$0.00</span></p>
+
+                    <button class="addingToCart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="featuredProduct_3 featuredProductCard">
+                <div class="featuredProductCardImg">
+                    <img src="../assets/img/sung-jinwoo-season-3840x2160-23604.jpg" alt="">
+                </div>
+                <div class="featuredProductCardDescription">
+                    <p class="fPCCategory">
+                        SMARTPHONES
+                    </p>
+
+                    <p class="fPCName">
+                        Google Pixel 7 Pro
+                    </p>
+
+                    <p class="fPCPrice">$0.00 <span class="fPCDiscount">$0.00</span></p>
+
+                    <button class="addingToCart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="featuredProduct_4 featuredProductCard">
+                <div class="featuredProductCardImg">
+                    <img src="../assets/img/sung-jinwoo-season-3840x2160-23604.jpg" alt="">
+                </div>
+                <div class="featuredProductCardDescription">
+                    <p class="fPCCategory">
+                        SMARTPHONES
+                    </p>
+
+                    <p class="fPCName">
+                        OnePlus 11
+                    </p>
+
+                    <p class="fPCPrice">$0.00 <span class="fPCDiscount">$0.00</span></p>
+
+                    <button class="addingToCart">Add to Cart</button>
+                </div>
+            </div> -->
+        </div>
+      </section>
+
+      <section id="support" class="container_4">
+        <div class="supportContainer_1">
+            <div class="supportContainerOneCard_1">
+                <h3>Subscribe to Excellence</h3>
+                <p>Join 50k+ professionals receving early access to protect launches and exclusive intelligent commerce insight</p>
+            </div>
+
+            <div class="supportContainerOneCard_2">
+                <input class="emailInput" placeholder="Enter address" type="email" name="" id="">
+                <button class="joinBtn">Join Now</button>
+            </div>
+        </div>
+
+        <div class="supportContainer_2">
+            <div class="supportContainerTwoCard_2 sCtC_2Cards">
+                <p class="supportContainerCardsTitle">LuxeCommerce</p>
+                <p>Pioneening the future of intelligent commerce with premium hardware and seamless digital experiences</p>
+            </div>
+            <div class="supportContainerTwoCard_2 sCtC_2Cards">
+                <p class="supportContainerCardsTitle">Shop</p>
+                <ul>
+                    <li><a href="">Electronics</a></li>
+                    <li><a href="">Fashion</a></li>
+                    <li><a href="">Home Living</a></li>
+                    <li><a href="">Beauty</a></li>
+                </ul>
+            </div>
+            <div class="supportContainerTwoCard_3 sCtC_2Cards">
+                <p class="supportContainerCardsTitle">Company</p>
+                <ul>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Sustainablity</a></li>
+                    <li><a href="">Careers</a></li>
+                    <li><a href="">Press</a></li>
+                </ul>
+            </div>
+            <div class="supportContainerTwoCard_4 sCtC_2Cards">
+                <p class="supportContainerCardsTitle">Support</p>
+                <ul>
+                    <li><a href="">Cntact</a></li>
+                    <li><a href="">Returns</a></li>
+                    <li><a href="">Warranty</a></li>
+                    <li><a href="">Shipping</a></li>
+                </ul>
+            </div>
+            <div class="supportContainerTwoCard_5 sCtC_2Cards">
+                <p class="supportContainerCardsTitle">Legal</p>
+                <ul>
+                    <li><a href="">Privacy</a></li>
+                    <li><a href="">Terms</a></li>
+                    <li><a href="">Cookies</a></li>
+                </ul>
+            </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+         <p class="footerText">© 2024 LuxeCommerce. All rights reserved.</p>
+    </footer>
+
+    <script src="../javascript/luxeHomePage.js"></script>
+  </body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxe Product Cart Page</title>
+    <link rel="stylesheet" href="../css/luxeProductCartPage.css">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+</head>
+<body>
+    <header>
+      <div class="leftSection">
+        <img
+          class="logoImg"
+          src="../assets//img/luxeProductCollection/Luxe E-commerce.png"
+          alt="luxe ecommerce logo"
+        />
+        <!-- Logo name of the website -->
+        <p>LuxeCommerce</p>
+      </div>
+
+      <!-- right menu -->
+      <div class="rightSection">
+        <div class="searchInputContainer">
+          <i
+            class="fa-solid fa-magnifying-glass"
+            style="color: rgb(146, 146, 146)"
+          ></i>
+          <input
+            class="searchInput"
+            placeholder="Search products..."
+            type="search"
+            name=""
+            id="searchInput"
+          />
+        </div>
+        <div class="cartIcon">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <div class="cartNotification">0</div>
+        </div>
+        <div class="profileContainer">
+          <i class="fa-regular fa-user"></i>
+        </div>
+      </div>
+    </header>
+
+    <main>
+        <section class="productCartPageWrapper">
+            <h2>Shopping Cart</h2>
+            <div class="productCartContainer">
+                <p class="numberofItem">You Have 3 in your cart</p>
+                <div class="productCartCards">
+                    <div class="productCartCard_1" id="cartItemsContainer">
+                        <div class="cartItem">
+                            <div class="itemImgContainer">
+                                <img src="../assets/img/luxeProductList/iphone 16 pro.jpg" alt="one of the product image">
+                            </div>
+
+                            <div class="cartItemDescription">
+
+                                <div class="cartItemNamePrice">
+                                    <p class="itemName">Lorem ipsum, dolor sit amet </p>
+                                    <p class="itemPrice">$200</p>
+                                </div>
+                                <div class="itemQuantity">
+                                    <div class="itemQuantityDescrement">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </div>
+
+                                    <div class="itemNumberQuantity">1</div>
+
+                                    <div class="itemQuantityIncrement">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </div>
+                                </div>
+
+                                <div class="removeItem">
+                                    <p class="remove">Remove</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="cartItem">
+                            <div class="itemImgContainer">
+                                <img src="../assets/img/luxeProductList/iphone 16 pro.jpg" alt="one of the product image">
+                            </div>
+
+                            <div class="cartItemDescription">
+
+                                <div class="cartItemNamePrice">
+                                    <p class="itemName">Lorem ipsum, dolor sit amet </p>
+                                    <p class="itemPrice">$200</p>
+                                </div>
+                                <div class="itemQuantity">
+                                    <div class="itemQuantityDescrement">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </div>
+
+                                    <div class="itemNumberQuantity">1</div>
+
+                                    <div class="itemQuantityIncrement">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </div>
+                                </div>
+
+                                <div class="removeItem">
+                                    <p class="remove">Remove</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="productCartCard_2">
+                        <h2>Order Summary</h2>
+                        <div class="itemsTotalContainer">
+                            <p>Subtotal</p>
+                            <p id="subTotal">$200</p>
+                        </div>
+
+                        <div class="shipping">
+                            <p>Shipping</p>
+                            <p>FREE</p>
+                        </div>
+
+                        <div class="itemsTaxeContainer">
+                            <p>Estimated Taxes</p>
+                            <p id="taxAmount">$20</p>
+                        </div>
+
+                        <hr>
+
+                        <div class="totalAmountContainer">
+                            <p>TOTAL AMOUNT</p>
+                            <p id="totalAmount">$1000</p>
+                        </div>
+
+                        <button type="submit" class="continueBtn"  id="continueBtn">
+                            Procees to Checkout 
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../javascript/cart.js"></script>
+</body>
+</html>

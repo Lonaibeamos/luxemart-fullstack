@@ -1,0 +1,1673 @@
+----------------product.js-----------------------
+/*
+let allProducts = [];
+
+// 1. LOAD PRODUCTS
+fetch("http://localhost/smart-ecommerce-app/Backend/api/products.php")
+.then(res => res.json())
+.then(products => {
+
+    allProducts = products;
+
+    console.log("ALL PRODUCTS LOADED:", allProducts);
+
+    displayProducts(allProducts);
+    setupFilters();
+    updateCategoryCounts();
+});
+
+
+// 2. DISPLAY PRODUCTS
+function displayProducts(products) {
+
+    const container = document.getElementById("productContainer");
+    container.innerHTML = "";
+
+    products.forEach(product => {
+
+        container.innerHTML += `
+        <div class="luxeProductListCard">
+          <div class="productImgContainer">
+            <img class="productImg" src="../assets/img/luxeProductList/${product.image}" alt="product img">
+          </div>
+
+          <div class="productDetails">
+            <p class="productCategory">${product.category}</p>
+            <h3 class="productName">${product.name}</h3>
+
+            <div class="starReview">
+              <i class="fa-regular fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+              <span class="reviewCount">(${product.rating} reviews)</span>
+            </div>
+
+            <div class="priceandAddcartContainer">
+              <p class="productPrice">$${product.price}</p> 
+              <div class="addBtn">
+                <i class="fa-solid fa-cart-plus"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        `;
+    });
+}
+
+
+// 3. SETUP FILTERS
+function setupFilters() {
+
+    const searchInput = document.getElementById("searchInput");
+    const checkboxes = document.querySelectorAll("input[name='category']");
+    const minInput = document.getElementById("minPrice");
+    const maxInput = document.getElementById("maxPrice");
+
+    // SEARCH
+    if (searchInput) {
+        searchInput.addEventListener("input", () => {
+            applyFilters();
+        });
+    }
+
+    // CATEGORY FILTER
+    checkboxes.forEach(cb => {
+        cb.addEventListener("change", applyFilters);
+    });
+
+    // PRICE FILTER
+    minInput.addEventListener("input", applyFilters);
+    maxInput.addEventListener("input", applyFilters);
+}
+
+
+// 4. APPLY FILTERS
+function applyFilters() {
+
+    console.log("FILTER RUNNING");
+
+    let searchInput = document.getElementById("searchInput");
+    let searchValue = searchInput ? searchInput.value.toLowerCase() : "";
+    let selectedCategories = [];
+
+    document.querySelectorAll("input[name='category']").forEach(cb => {
+        if (cb.checked && cb.value) {
+            selectedCategories.push(cb.value.toLowerCase());
+        }
+    });
+
+    let min = parseFloat(document.getElementById("minPrice").value) || 0;
+    let max = parseFloat(document.getElementById("maxPrice").value) || Infinity;
+
+    let filtered = allProducts.filter(product => {
+
+        let name = product.name.toLowerCase();
+        let category = product.category.toLowerCase();
+        let price = parseFloat(product.price);
+
+
+
+        let searchMatch =
+            searchValue === "" ||
+            name.toLowerCase().includes(searchValue) ||
+            category.toLowerCase().includes(searchValue) ||
+            product.description.toLowerCase().includes(searchValue);
+
+        let categoryMatch =
+            selectedCategories.length === 0 ||
+            selectedCategories.includes(category);
+
+        let priceMatch =
+            price >= min && price <= max;
+
+        return searchMatch && categoryMatch && priceMatch;
+    });
+
+    console.log("FILTERED RESULT:", filtered);
+
+    displayProducts(filtered);
+}
+
+
+// 5. CATEGORY COUNTS
+function updateCategoryCounts() {
+
+    document.querySelector(".numberofProductOne").textContent = allProducts.length;
+
+    document.querySelector(".numberofProductTwo").textContent =
+        allProducts.filter(p => p.category.toLowerCase() === "smartphones").length;
+
+    document.querySelector(".numberofProductThree").textContent =
+        allProducts.filter(p => p.category.toLowerCase() === "computers").length;
+
+    document.querySelector(".numberofProductFour").textContent =
+        allProducts.filter(p => p.category.toLowerCase() === "computer components").length;
+
+    document.querySelector(".numberofProductFive").textContent =
+        allProducts.filter(p => p.category.toLowerCase() === "accessories").length;
+
+    document.querySelector(".numberofProductSix").textContent =
+        allProducts.filter(p => p.category.toLowerCase() === "watches").length;
+
+    document.querySelector(".numberofProductSeven").textContent =
+        allProducts.filter(p => p.category.toLowerCase() === "audio devices").length;
+}*/
+
+// let allProducts = [];
+// let noProductsMessage;
+// let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+// // 1. LOAD PRODUCTS
+// fetch("http://localhost/smart-ecommerce-app/Backend/api/products.php")
+// .then(res => res.json())
+// .then(products => {
+
+//     allProducts = products;
+
+//     console.log("ALL PRODUCTS LOADED:", allProducts);
+
+//     updateCartNotification();
+
+//     // ONLY RUN ON LIST PAGE
+//     if (document.getElementById("productContainer")) {
+//         displayProducts(allProducts);
+//         setupFilters();
+//         updateCategoryCounts();
+//     }
+
+//     // ONLY RUN ON DETAIL PAGE
+//     if (document.getElementById("productDetailsContainer")) {
+//         displayProductDetails();
+//     }
+    
+// });
+
+
+// // 2. DISPLAY PRODUCTS
+// function displayProducts(products) {
+
+//     const container = document.getElementById("productContainer");
+
+//     if (!container) return;
+//     container.innerHTML = "";
+
+
+//     products.forEach(product => {
+
+//         container.innerHTML += `
+//         <div class="luxeProductListCard">
+//           <div class="productImgContainer" onclick="goToProductDetails(${product.id})">
+//             <img class="productImg" src="../assets/img/luxeProductList/${product.image}" alt="product img">
+//           </div>
+
+//           <div class="productDetails">
+//             <p class="productCategory">${product.category}</p>
+//             <h3 class="productName">${product.name}</h3>
+
+//             <div class="starReview">
+//               <i class="fa-regular fa-star"></i>
+//               <i class="fa-regular fa-star"></i>
+//               <i class="fa-regular fa-star"></i>
+//               <i class="fa-regular fa-star"></i>
+//               <i class="fa-regular fa-star"></i>
+//               <span class="reviewCount">(${product.rating} reviews)</span>
+//             </div>
+
+//             <div class="priceandAddcartContainer">
+//               <p class="productPrice">$${product.price}</p> 
+//               <div class="addBtn" onclick="addToCart(${product.id})">
+//                 <i class="fa-solid fa-cart-plus"></i>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//         `;
+//     });
+// }
+
+// // Go To Product Detail Page 
+// window.goToProductDetails = function(productId) {
+//     console.log("CLICKED ID:", productId);
+
+//     window.location.href =
+//         `http://localhost/smart-ecommerce-app/Frontend/html/luxeProductDetailPage.html?id=${productId}`;
+// }
+
+
+// window.addToCart = function(productId){
+
+//     const product = allProducts.find(p => p.id == productId);
+
+//     if(!product) return;
+
+//     let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+//     // check if already exists
+//     let existing = cart.find(item => item.id == productId);
+
+//     if(existing){
+//         existing.quantity += 1;
+//     } else {
+//         cart.push({
+//             ...product,
+//             quantity: 1
+//         });
+//     }
+
+//     localStorage.setItem("cart", JSON.stringify(cart));
+
+//     updateCartNotification();
+
+//     alert(`${product.name} added to cart`);
+// };
+
+
+// // 3. SETUP FILTERS
+// function setupFilters() {
+
+//     const searchInput = document.getElementById("searchInput");
+//     const checkboxes = document.querySelectorAll("input[name='category']");
+//     const minInput = document.getElementById("minPrice");
+//     const maxInput = document.getElementById("maxPrice");
+
+//     // SEARCH
+//     if (searchInput) {
+//         searchInput.addEventListener("input", applyFilters);
+//     }
+
+//     // CATEGORY
+//     checkboxes.forEach(cb => {
+//         cb.addEventListener("change", applyFilters);
+//     });
+
+//     // PRICE
+//     minInput.addEventListener("input", applyFilters);
+//     maxInput.addEventListener("input", applyFilters);
+// }
+
+// // 4. APPLY FILTERS (FIXED VERSION)
+// function applyFilters() {
+
+//     let searchValue = (document.getElementById("searchInput").value || "").toLowerCase();
+
+//     let selectedCategories = [];
+
+//     document.querySelectorAll("input[name='category']").forEach(cb => {
+//         if (cb.checked && cb.value) {
+//             selectedCategories.push(cb.value.toLowerCase());
+//         }
+//     });
+
+//     let allChecked = document.querySelector("#category1").checked;
+
+//     let min = parseFloat(document.getElementById("minPrice").value) || 0;
+//     let max = parseFloat(document.getElementById("maxPrice").value) || Infinity;
+
+//     let filtered = allProducts.filter(product => {
+
+//         let name = (product.name || "").toLowerCase();
+//         let category = (product.category || "").toLowerCase();
+//         let desc = (product.description || "").toLowerCase();
+//         let price = parseFloat(product.price);
+
+//         let searchMatch =
+//             searchValue === "" ||
+//             name.includes(searchValue) ||
+//             category.includes(searchValue) ||
+//             desc.includes(searchValue);
+
+//         let categoryMatch =
+//             allChecked ||
+//             selectedCategories.length === 0 ||
+//             selectedCategories.includes(category);
+
+//         let priceMatch =
+//             price >= min && price <= max;
+
+//         return searchMatch && categoryMatch && priceMatch;
+//     });
+
+//     console.log("FILTERED RESULT:", filtered);
+
+//     displayProducts(filtered);
+// }
+
+// // 5. CATEGORY COUNTS
+// function updateCategoryCounts() {
+
+//     document.querySelector(".numberofProductOne").textContent = allProducts.length;
+
+//     document.querySelector(".numberofProductTwo").textContent =
+//         allProducts.filter(p => p.category.toLowerCase() === "smartphones").length;
+
+//     document.querySelector(".numberofProductThree").textContent =
+//         allProducts.filter(p => p.category.toLowerCase() === "computers").length;
+
+//     document.querySelector(".numberofProductFour").textContent =
+//         allProducts.filter(p => p.category.toLowerCase() === "computer components").length;
+
+//     document.querySelector(".numberofProductFive").textContent =
+//         allProducts.filter(p => p.category.toLowerCase() === "accessories").length;
+
+//     document.querySelector(".numberofProductSix").textContent =
+//         allProducts.filter(p => p.category.toLowerCase() === "watches").length;
+
+//     document.querySelector(".numberofProductSeven").textContent =
+//         allProducts.filter(p => p.category.toLowerCase() === "audio devices").length;
+// }
+
+// // 6. ProductDetail Function 
+// function displayProductDetails(){
+//     const detailContainer = document.getElementById("productDetailsContainer");
+
+
+//     if(!detailContainer)return;
+
+//     const params = new URLSearchParams(window.location.search);
+//     const productId = params.get('id');
+
+//     const product = allProducts.find(p => p.id == productId);
+
+//     // IF PRODUCT NOT FOUND
+//     if(!product){
+
+//         detailContainer.innerHTML =
+//         `<h1>Product Not Found</h1>`;
+
+//         return;
+//     }
+    
+//     detailContainer.innerHTML = `
+//         <div class = "productDetailImgCard">
+//             <img src="../assets/img/luxeProductList/${product.image}" alt="image of products detail">
+//         </div>
+//         <div class="productDetailDescription">
+//             <h1>${product.name}</h1>
+//             <div class="starReview">
+//                 <i class="fa-regular fa-star"></i>
+//                 <i class="fa-regular fa-star"></i>
+//                 <i class="fa-regular fa-star"></i>
+//                 <i class="fa-regular fa-star"></i>
+//                 <i class="fa-regular fa-star"></i>
+//                 <span class="reviewCount">
+//                     (${product.rating} reviews)
+//                 </span>
+//                 <p class="separating">|</p>
+//                 <span class="checkingStock">In Stock</span>
+//             </div>
+
+//             <p class="productPrice">
+//                 $${product.price}
+//             </p>
+//             <p class="ProductDescription">
+//                 ${product.description}
+//             </p>
+//             <div class="productQuantity">
+//                 <h3>Quantity</h3>
+//                 <div class="quantityCount">
+//                     <div class="quantityDescrement">
+//                         <i class="fa-solid fa-minus"></i>
+//                     </div>
+
+//                     <div class="numberOfQuantity">1</div>
+
+//                     <div class="quantityIncrement">
+//                         <i class="fa-solid fa-plus"></i>
+//                     </div>
+//                 </div>
+//             </div>
+//             <button type="submit" id="addToCartBtn">
+//                 <i class="fa-solid fa-cart-shopping"></i>
+//                 <p>Add to Cart</p>
+//             </button>
+//         </div>
+//     `;
+
+
+//     const addCartBtn = document.getElementById("addToCartBtn");
+
+//     addCartBtn.addEventListener("click", function(){
+
+//         let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+//         const quantity = Number(document.querySelector(".numberOfQuantity").textContent);
+
+//         let existing = cart.find(item => item.id == product.id);
+
+//         if(existing){
+//             existing.quantity += quantity;
+//         } else {
+//             cart.push({
+//                 ...product,
+//                 quantity: quantity
+//             });
+//         }
+
+//         localStorage.setItem("cart", JSON.stringify(cart));
+
+//         updateCartNotification();
+
+//         alert(`${product.name} added to cart`);
+//     });
+
+//     setUpQuantityControls();
+
+
+//     const addCartBtn = document.getElementById("addToCartBtn");
+
+
+//     addCartBtn.addEventListener("click" , ()=>{
+//         cart.push(product)
+
+//         localStorage.setItem(
+
+//             "cart",
+//             JSON.stringify(cart)
+//         )
+
+//         updateCartNotification();
+
+//         alert(`${product.name} added to cart`)
+//     });
+
+// }
+
+
+
+// function setUpQuantityControls(){
+
+//     const minusBtn = document.querySelector(".quantityDescrement");
+//     const plusBtn = document.querySelector(".quantityIncrement");
+//     const quantityDisplay = document.querySelector(".numberOfQuantity");
+
+
+//     if(!minusBtn || !plusBtn || !quantityDisplay) return;
+
+//     let quantity = 1;
+
+//     minusBtn.addEventListener("click" , ()=>{
+//         if(quantity > 1){
+//             quantity--;
+//             quantityDisplay.textContent = quantity;
+//         }
+//     })
+
+
+//     plusBtn.addEventListener("click" , ()=>{
+//         quantity++;
+//         quantityDisplay.textContent = quantity;
+//     })
+// }
+
+// // function updateCartNotification(){
+
+// //     const cartNotification =
+// //         document.querySelector(".cartNotification");
+
+// //     if(!cartNotification) return;
+
+// //     let totalItems = 0;
+
+// //     cart.forEach(item => {
+// //         totalItems += Number(item.quantity || 1);
+// //     });
+
+// //     cartNotification.textContent = totalItems;
+// // }
+
+
+// function updateCartNotification(){
+
+//     const cartNotification = document.querySelector(".cartNotification");
+
+//     if(!cartNotification) return;
+
+//     let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+//     let totalItems = cart.reduce((sum, item) => {
+//         return sum + Number(item.quantity || 0);
+//     }, 0);
+
+//     cartNotification.textContent = totalItems;
+// }
+
+// document.addEventListener("click", function(e){
+
+//     const cartIcon = e.target.closest(".cartIcon");
+
+//     if(cartIcon){
+
+//         window.location.href =
+//         "http://localhost/smart-ecommerce-app/Frontend/html/luxeProductCartPage.html";
+//     }
+// });
+
+
+---------------- luxeloginAuth.js------------------
+// document.addEventListener("DOMContentLoaded", () => {
+
+//     const form = document.getElementById("loginForm");
+
+//     const email = document.getElementById("email");
+//     const password = document.getElementById("password");
+
+//     const eyeOpenIcon = document.getElementById("eyeOpenIcon");
+//     const eyeCloseIcon = document.getElementById("eyeCloseIcon");
+
+//     // DEFAULT ICON STATE
+//     eyeOpenIcon.style.display = "none";
+//     eyeCloseIcon.style.display = "block";
+
+//     // SHOW PASSWORD
+//     eyeCloseIcon.addEventListener("click", () => {
+//         password.type = "text";
+//         eyeCloseIcon.style.display = "none";
+//         eyeOpenIcon.style.display = "block";
+//     });
+
+//     // HIDE PASSWORD
+//     eyeOpenIcon.addEventListener("click", () => {
+//         password.type = "password";
+//         eyeOpenIcon.style.display = "none";
+//         eyeCloseIcon.style.display = "block";
+//     });
+
+//     // LOGIN SUBMIT
+//     form.addEventListener("submit", async (e) => {
+//         e.preventDefault();
+
+//         if (!email.value || !password.value) {
+//             showToast("Fill all fields", "error");
+//             return;
+//         }
+
+//         try {
+//             const res = await fetch("http://localhost/smart-ecommerce-app/Backend/api/login.php", {
+//                 method: "POST",
+//                 headers: {
+//                     "Content-Type": "application/json"
+//                 },
+//                 body: JSON.stringify({
+//                     email: email.value,
+//                     password: password.value
+//                 })
+//             });
+
+//             const data = await res.json();
+
+//             if (data.status === "success") {
+
+//                 showPopup(data.message, "success");
+
+//                 // STORE LOGIN STATE
+//                 localStorage.setItem("isLoggedIn", "true");
+
+//                 // CHANGE HEADER UI
+//                 document.getElementById("authContainer").style.display = "none";
+//                 document.getElementById("userProfile").style.display = "flex";
+
+//                 // redirect (optional)
+//                 setTimeout(() => {
+//                     window.location.href = "home.html";
+//                 }, 1000);
+//             } else {
+//                 showToast(data.message, "error");
+//             }
+
+//         } catch (err) {
+//             console.log(err);
+//             showToast("Server error occurred", "error");
+//         }
+//     });
+
+// });
+
+
+// // 🔥 TOAST FUNCTION
+// function showToast(message, type) {
+
+//     const container = document.getElementById("toast-container");
+
+//     const toast = document.createElement("div");
+//     toast.classList.add("toast", type);
+
+//     const icon = type === "success" ? "✔" : "✖";
+
+//     toast.innerHTML = `
+//         <span style="font-size:16px">${icon}</span>
+//         <span>${message}</span>
+//     `;
+
+//     container.appendChild(toast);
+
+//     setTimeout(() => {
+//         toast.remove();
+//     }, 2500);
+// }
+
+
+------------------config------------------
+ <?php
+    $db_server = "localhost";
+    $db_user = "root";
+    $db_pass = "";
+    $db_name = "luxecommerce_db";
+    $conn = "";
+
+    $conn = new mysqli($db_server, $db_user, $db_pass, $db_name);
+
+    try {
+
+        $conn = mysqli_connect(
+            $db_server,
+            $db_user,
+            $db_pass,
+            $db_name
+        );
+    } catch (mysqli_sql_exception) {
+        echo "could not connect";
+    }
+?> 
+
+--------------------add to cart php----------------
+<?php
+
+header("Content-Type: application/json");
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: POST");
+header("Access-Control-Allow-Headers: Content-Type");
+
+
+    $conn = include "/opt/lampp/htdocs/smart-ecommerce-app/Backend/config/luxe_database.php";
+
+
+$data = json_decode(file_get_contents("php://input"), true);
+
+if (
+    !isset($data["user_id"]) ||
+    !isset($data["product_id"]) ||
+    !isset($data["quantity"])
+) {
+    echo json_encode([
+        "status" => "error",
+        "message" => "Missing required data"
+    ]);
+    exit;
+}
+
+$user_id = (int)$data["user_id"];
+$product_id = (int)$data["product_id"];
+$quantity = (int)$data["quantity"];
+
+/*
+|--------------------------------------------------------------------------
+| CHECK IF PRODUCT ALREADY EXISTS IN USER CART
+|--------------------------------------------------------------------------
+*/
+
+$check = $conn->prepare(
+    "SELECT id, quantity
+     FROM luxe_cart
+     WHERE user_id = ? AND product_id = ?"
+);
+
+$check->bind_param("ii", $user_id, $product_id);
+$check->execute();
+
+$result = $check->get_result();
+
+if ($result->num_rows > 0) {
+
+    $cartItem = $result->fetch_assoc();
+
+    $newQuantity = $cartItem["quantity"] + $quantity;
+
+    $update = $conn->prepare(
+        "UPDATE luxe_cart
+         SET quantity = ?
+         WHERE id = ?"
+    );
+
+    $update->bind_param(
+        "ii",
+        $newQuantity,
+        $cartItem["id"]
+    );
+
+    if ($update->execute()) {
+
+        echo json_encode([
+            "status" => "success",
+            "message" => "Cart updated"
+        ]);
+    } else {
+
+        echo json_encode([
+            "status" => "error",
+            "message" => "Failed to update cart"
+        ]);
+    }
+} else {
+
+    $insert = $conn->prepare(
+        "INSERT INTO luxe_cart
+        (user_id, product_id, quantity)
+        VALUES (?, ?, ?)"
+    );
+
+    $insert->bind_param(
+        "iii",
+        $user_id,
+        $product_id,
+        $quantity
+    );
+
+    if ($insert->execute()) {
+
+        echo json_encode([
+            "status" => "success",
+            "message" => "Product added to cart"
+        ]);
+    } else {
+
+        echo json_encode([
+            "status" => "error",
+            "message" => "Failed to add product"
+        ]);
+    }
+}
+
+$conn->close();
+
+
+----------------cart------------------
+// let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+// displayCartItems();
+// updateCartNotification();
+// updateOrderSummary();
+
+
+
+// // DISPLAY CART ITEMS
+// function displayCartItems(){
+
+//     const cartContainer =
+//         document.getElementById("cartItemsContainer");
+
+//     if(!cartContainer) return;
+
+//     cartContainer.innerHTML = "";
+
+//     // EMPTY CART
+//     if(cart.length === 0){
+
+//         cartContainer.innerHTML = `
+//             <h2>Your Cart is Empty</h2>
+//         `;
+
+//         return;
+//     }
+
+//     // DISPLAY ITEMS
+//     cart.forEach((item , index) => {
+
+//         cartContainer.innerHTML += `
+//             <div class="cartItem">
+
+//                 <div class="itemImgContainer">
+//                     <img 
+//                         src="../assets/img/luxeProductList/${item.image}" 
+//                         alt="${item.name}"
+//                     >
+//                 </div>
+
+//                 <div class="cartItemDescription">
+
+//                     <div class="cartItemNamePrice">
+//                         <p class="itemName">${item.name}</p>
+
+//                         <p class="itemPrice">
+//                             $${item.price}
+//                         </p>
+//                     </div>
+
+//                     <div class="itemQuantity">
+
+//                         <div 
+//                             class="itemQuantityDescrement"
+//                             onclick="decreaseQuantity(${index})"
+//                         >
+//                             <i class="fa-solid fa-minus"></i>
+//                         </div>
+
+//                         <div class="itemNumberQuantity">
+//                             ${item.quantity}
+//                         </div>
+
+//                         <div 
+//                             class="itemQuantityIncrement"
+//                             onclick="increaseQuantity(${index})"
+//                         >
+//                             <i class="fa-solid fa-plus"></i>
+//                         </div>
+
+//                     </div>
+
+//                     <div class="removeItem">
+//                         <p 
+//                             class="remove"
+//                             onclick="removeItem(${index})"
+//                         >
+//                             Remove
+//                         </p>
+//                     </div>
+
+//                 </div>
+
+//             </div>
+//         `;
+//     });
+// }
+
+
+
+// // INCREASE QUANTITY
+// window.increaseQuantity = function(index){
+
+//     cart[index].quantity++;
+
+//     saveCart();
+// };
+
+
+
+// // DECREASE QUANTITY
+// window.decreaseQuantity = function(index){
+
+//     if(cart[index].quantity > 1){
+
+//         cart[index].quantity--;
+//     }
+
+//     saveCart();
+// };
+
+
+
+// // REMOVE ITEM
+// window.removeItem = function(index){
+
+//     cart.splice(index , 1);
+
+//     saveCart();
+// };
+
+
+
+// // SAVE CART
+// function saveCart(){
+
+//     localStorage.setItem(
+//         "cart",
+//         JSON.stringify(cart)
+//     );
+
+//     displayCartItems();
+
+//     updateCartNotification();
+
+//     updateOrderSummary();
+// }
+
+
+
+// // UPDATE NOTIFICATION
+// function updateCartNotification(){
+
+//     const cartNotification =
+//         document.querySelector(".cartNotification");
+
+//     if(!cartNotification) return;
+
+//     let totalItems = 0;
+
+//     cart.forEach(item => {
+
+//         totalItems += Number(item.quantity);
+//     });
+
+//     cartNotification.textContent = totalItems;
+// }
+
+
+
+// // ORDER SUMMARY
+// function updateOrderSummary(){
+
+//     const subTotal =
+//         document.getElementById("subTotal");
+
+//     const taxAmount =
+//         document.getElementById("taxAmount");
+
+//     const totalAmount =
+//         document.getElementById("totalAmount");
+
+//     const numberofItem =
+//         document.querySelector(".numberofItem");
+
+
+//     let subtotal = 0;
+
+//     let totalItems = 0;
+
+
+//     cart.forEach(item => {
+
+//         subtotal += Number(item.price * item.quantity);
+
+//         totalItems += Number(item.quantity);
+//     });
+
+
+//     let tax = Number(subtotal * 0.1);
+
+//     let total = Number(subtotal + tax);
+
+
+//     // UPDATE TOP TEXT
+//     if(numberofItem){
+
+//         numberofItem.textContent =
+//             `You Have ${totalItems} item(s) in your cart`;
+//     }
+
+
+//     // UPDATE SUMMARY
+//     if(subTotal){
+
+//         subTotal.textContent =
+//             `$${subtotal.toFixed(2)}`;
+//     }
+
+//     if(taxAmount){
+
+//         taxAmount.textContent =
+//             `$${tax.toFixed(2)}`;
+//     }
+
+//     if(totalAmount){
+
+//         totalAmount.textContent =
+//             `$${total.toFixed(2)}`;
+//     }
+// }
+
+
+/////////////////////////////////////////////////////////////////
+
+// let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+// // 🔥 CLEAN CART ON LOAD (fix NaN / undefined)
+// cart = cart.map(item => ({
+//     ...item,
+//     price: Number(item.price) || 0,
+//     quantity: Number(item.quantity) || 1
+// }));
+
+// // INIT
+// displayCartItems();
+// updateCartNotification();
+// updateOrderSummary();
+
+
+// // ===============================
+// // DISPLAY CART ITEMS
+// // ===============================
+// function displayCartItems() {
+
+//     const cartContainer = document.getElementById("cartItemsContainer");
+
+//     if (!cartContainer) return;
+
+//     cartContainer.innerHTML = "";
+
+//     if (cart.length === 0) {
+//         cartContainer.innerHTML = `<h2>Your Cart is Empty</h2>`;
+//         return;
+//     }
+
+//     cart.forEach((item, index) => {
+
+//         cartContainer.innerHTML += `
+//             <div class="cartItem">
+
+//                 <div class="itemImgContainer">
+//                     <img src="../assets/img/luxeProductList/${item.image}" alt="${item.name}">
+//                 </div>
+
+//                 <div class="cartItemDescription">
+
+//                     <div class="cartItemNamePrice">
+//                         <p class="itemName">${item.name}</p>
+//                         <p class="itemPrice">$${Number(item.price).toFixed(2)}</p>
+//                     </div>
+
+//                     <div class="itemQuantity">
+
+//                         <div class="itemQuantityDescrement"
+//                             onclick="decreaseQuantity(${index})">
+//                             <i class="fa-solid fa-minus"></i>
+//                         </div>
+
+//                         <div class="itemNumberQuantity">
+//                             ${item.quantity}
+//                         </div>
+
+//                         <div class="itemQuantityIncrement"
+//                             onclick="increaseQuantity(${index})">
+//                             <i class="fa-solid fa-plus"></i>
+//                         </div>
+
+//                     </div>
+
+//                     <div class="removeItem">
+//                         <p class="remove" onclick="removeItem(${index})">
+//                             Remove
+//                         </p>
+//                     </div>
+
+//                 </div>
+
+//             </div>
+//         `;
+//     });
+// }
+
+
+// // ===============================
+// // INCREASE QUANTITY
+// // ===============================
+// window.increaseQuantity = function(index) {
+
+//     cart[index].quantity = Number(cart[index].quantity) + 1;
+
+//     saveCart();
+// };
+
+
+// // ===============================
+// // DECREASE QUANTITY
+// // ===============================
+// window.decreaseQuantity = function(index) {
+
+//     if (cart[index].quantity > 1) {
+//         cart[index].quantity = Number(cart[index].quantity) - 1;
+//     }
+
+//     saveCart();
+// };
+
+
+// // ===============================
+// // REMOVE ITEM
+// // ===============================
+// window.removeItem = function(index) {
+
+//     cart.splice(index, 1);
+
+//     saveCart();
+// };
+
+
+// // ===============================
+// // SAVE CART
+// // ===============================
+// function saveCart() {
+
+//     localStorage.setItem("cart", JSON.stringify(cart));
+
+//     displayCartItems();
+//     updateCartNotification();
+//     updateOrderSummary();
+// }
+
+
+// // ===============================
+// // CART NOTIFICATION (HEADER)
+// // ===============================
+// function updateCartNotification() {
+
+//     const cartNotification = document.querySelector(".cartNotification");
+
+//     if (!cartNotification) return;
+
+//     let totalItems = 0;
+
+//     cart.forEach(item => {
+//         totalItems += Number(item.quantity) || 0;
+//     });
+
+//     cartNotification.textContent = totalItems;
+// }
+
+
+// // ===============================
+// // ORDER SUMMARY (CARD 2)
+// // ===============================
+// function updateOrderSummary() {
+
+//     const subTotalEl = document.getElementById("subTotal");
+//     const taxEl = document.getElementById("taxAmount");
+//     const totalEl = document.getElementById("totalAmount");
+//     const numberofItem = document.querySelector(".numberofItem");
+
+//     let subtotal = 0;
+//     let totalItems = 0;
+
+//     cart.forEach(item => {
+
+//         let price = Number(item.price) || 0;
+//         let qty = Number(item.quantity) || 0;
+
+//         subtotal += price * qty;
+//         totalItems += qty;
+//     });
+
+//     let tax = subtotal * 0.1;
+//     let total = subtotal + tax;
+
+
+//     // TOP TEXT
+//     if (numberofItem) {
+//         numberofItem.textContent =
+//             `You Have ${totalItems} item(s) in your cart`;
+//     }
+
+
+//     // SUBTOTAL
+//     if (subTotalEl) {
+//         subTotalEl.textContent = `$${subtotal.toFixed(2)}`;
+//     }
+
+//     // TAX
+//     if (taxEl) {
+//         taxEl.textContent = `$${tax.toFixed(2)}`;
+//     }
+
+//     // TOTAL
+//     if (totalEl) {
+//         totalEl.textContent = `$${total.toFixed(2)}`;
+//     }
+// }
+
+
+// document.addEventListener("DOMContentLoaded", () => {
+
+//     // ===============================
+//     // PAYMENT TOGGLE SAFE VERSION
+//     // ===============================
+//     const bankOption = document.getElementById("bankOption");
+//     const cashOption = document.getElementById("cashOption");
+
+//     const bankCard = document.querySelector(".paymentOptioncardBankTransfer");
+//     const cashCard = document.querySelector(".paymentOptioncardCash");
+
+//     if (bankOption && cashOption && bankCard && cashCard) {
+
+//         function showBank() {
+//             bankOption.classList.add("active");
+//             cashOption.classList.remove("active");
+
+//             bankCard.classList.add("show");
+//             cashCard.classList.remove("show");
+//         }
+
+//         function showCash() {
+//             cashOption.classList.add("active");
+//             bankOption.classList.remove("active");
+
+//             cashCard.classList.add("show");
+//             bankCard.classList.remove("show");
+//         }
+
+//         bankOption.addEventListener("click", showBank);
+//         cashOption.addEventListener("click", showCash);
+
+//         showBank(); // default
+//     }
+
+//     // ===============================
+//     // CONTINUE BUTTON FIX
+//     // ===============================
+//     const continueBtn = document.getElementById("continueBtn");
+
+//     if (continueBtn) {
+//         continueBtn.addEventListener("click", function(e) {
+//             e.preventDefault();
+
+//             window.location.href =
+//                 "http://localhost/smart-ecommerce-app/Frontend/html/luxeCheckoutPage.html";
+//         });
+//     }
+
+// });
+
+
+=========================orders==============================
+<?php
+
+    header("Content-Type: application/json");
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Methods: POST");
+    header("Access-Control-Allow-Headers: Content-Type");
+
+    include "../config/luxe_database.php";
+
+    /*
+    |--------------------------------------------------------------------------
+    | GET FORM DATA
+    |--------------------------------------------------------------------------
+    */
+
+    $user_id = $_POST["user_id"] ?? null;
+    $first_name = $_POST["first_name"] ?? "";
+    $last_name = $_POST["last_name"] ?? "";
+    $street_address = $_POST["street_address"] ?? "";
+    $city = $_POST["city"] ?? "";
+    $state = $_POST["state"] ?? "";
+    $payment_method = $_POST["payment_method"] ?? "";
+
+    /*
+    |--------------------------------------------------------------------------
+    | VALIDATION
+    |--------------------------------------------------------------------------
+    */
+
+    if (!$user_id || !$payment_method) {
+        echo json_encode([
+            "status" => "error",
+            "message" => "Missing required data"
+        ]);
+        exit;
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | GET CART ITEMS FROM DATABASE
+    |--------------------------------------------------------------------------
+    */
+
+    $cart_sql = "
+    SELECT c.product_id, c.quantity, p.price
+    FROM luxe_cart c
+    JOIN luxe_products p ON c.product_id = p.id
+    WHERE c.user_id = ?
+    ";
+
+    $stmt = $conn->prepare($cart_sql);
+    $stmt->bind_param("i", $user_id);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+
+    $cart_items = [];
+    $total_price = 0;
+
+    while ($row = $result->fetch_assoc()) {
+        $cart_items[] = $row;
+        $total_price += $row["price"] * $row["quantity"];
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | CHECK IF CART IS EMPTY
+    |--------------------------------------------------------------------------
+    */
+
+    if (count($cart_items) === 0) {
+        echo json_encode([
+            "status" => "error",
+            "message" => "Cart is empty"
+        ]);
+        exit;
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | INSERT INTO ORDERS TABLE
+    |--------------------------------------------------------------------------
+    */
+
+    $order_sql = "
+    INSERT INTO luxe_orders 
+    (user_id, total_price, payment_method, status)
+    VALUES (?, ?, ?, 'pending')
+    ";
+
+    $order_stmt = $conn->prepare($order_sql);
+    $order_stmt->bind_param("ids", $user_id, $total_price, $payment_method);
+
+    if (!$order_stmt->execute()) {
+        echo json_encode([
+            "status" => "error",
+            "message" => "Failed to create order"
+        ]);
+        exit;
+    }
+
+    $order_id = $order_stmt->insert_id;
+
+    /*
+    |--------------------------------------------------------------------------
+    | INSERT ORDER ITEMS
+    |--------------------------------------------------------------------------
+    */
+
+    $item_sql = "
+    INSERT INTO luxe_order_items
+    (order_id, product_id, quantity, price)
+    VALUES (?, ?, ?, ?)
+    ";
+
+    $item_stmt = $conn->prepare($item_sql);
+
+    foreach ($cart_items as $item) {
+
+        $item_stmt->bind_param(
+            "iiid",
+            $order_id,
+            $item["product_id"],
+            $item["quantity"],
+            $item["price"]
+        );
+
+        $item_stmt->execute();
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | OPTIONAL: CLEAR CART AFTER ORDER
+    |--------------------------------------------------------------------------
+    */
+
+    $clear = $conn->prepare("DELETE FROM luxe_cart WHERE user_id = ?");
+    $clear->bind_param("i", $user_id);
+    $clear->execute();
+
+    /*
+    |--------------------------------------------------------------------------
+    | RESPONSE
+    |--------------------------------------------------------------------------
+    */
+
+    echo json_encode([
+        "status" => "success",
+        "message" => "Order placed successfully",
+        "order_id" => $order_id,
+        "total" => $total_price
+    ]);
+
+    $conn->close();
+?>
+
+---------------------------------------------------------
+                     curent password
+---------------------------------------------------------
+<?php
+header("Content-Type: application/json");
+include "../config/luxe_database.php";
+
+$data = json_decode(file_get_contents("php://input"), true);
+
+$user_id = $data["user_id"];
+$fullname = $data["fullname"];
+$email = $data["email"];
+$phone = $data["phone"];
+
+$stmt = $conn->prepare("
+    UPDATE luxe_users 
+    SET fullname = ?, email = ?, phone = ?
+    WHERE id = ?
+");
+
+$stmt->bind_param("sssi", $fullname, $email, $phone, $user_id);
+
+if ($stmt->execute()) {
+    echo json_encode([
+        "status" => "success",
+        "message" => "User updated"
+    ]);
+} else {
+    echo json_encode([
+        "status" => "error",
+        "message" => "Update failed"
+    ]);
+}
+
+
+
+=================---------------------------===========================-
+-----------------=============================------------
+<?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+header("Content-Type: application/json");
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: POST");
+header("Access-Control-Allow-Headers: Content-Type");
+
+include_once __DIR__ . "/../config/luxe_database.php";
+
+$data = json_decode(file_get_contents("php://input"), true);
+
+if (!$data) {
+    echo json_encode([
+        "status" => "error",
+        "message" => "Invalid input"
+    ]);
+    exit;
+}
+
+$cart_id = (int) $data["cart_id"];
+$action = $data["action"];
+
+if (!$cart_id || !$action) {
+    echo json_encode([
+        "status" => "error",
+        "message" => "Missing data"
+    ]);
+    exit;
+}
+
+// GET CURRENT QUANTITY
+$get = $conn->prepare("SELECT quantity FROM luxe_cart WHERE id = ?");
+$get->bind_param("i", $cart_id);
+$get->execute();
+$result = $get->get_result();
+
+if ($result->num_rows === 0) {
+    echo json_encode([
+        "status" => "error",
+        "message" => "Cart item not found"
+    ]);
+    exit;
+}
+
+$row = $result->fetch_assoc();
+$currentQty = (int) $row["quantity"];
+
+if ($action === "increase") {
+    $newQty = $currentQty + 1;
+} else if ($action === "decrease") {
+    $newQty = $currentQty - 1;
+    if ($newQty < 1) $newQty = 1;
+} else {
+    echo json_encode([
+        "status" => "error",
+        "message" => "Invalid action"
+    ]);
+    exit;
+}
+
+// UPDATE DB
+$update = $conn->prepare("UPDATE luxe_cart SET quantity = ? WHERE id = ?");
+$update->bind_param("ii", $newQty, $cart_id);
+
+if ($update->execute()) {
+    echo json_encode([
+        "status" => "success",
+        "message" => "Quantity updated",
+        "new_quantity" => $newQty
+    ]);
+} else {
+    echo json_encode([
+        "status" => "error",
+        "message" => "Update failed"
+    ]);
+}
+
+$conn->close();
+?>
+--------------------------------___________________________----
+____________---------------__________________________________
+add cart 
+
+____________
+<?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+header("Content-Type: application/json");
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: POST");
+header("Access-Control-Allow-Headers: Content-Type");
+
+// ============================
+// 1. DATABASE CONNECTION
+// ============================
+include_once __DIR__ . "/../config/luxe_database.php";
+
+if (!$conn) {
+    echo json_encode([
+        "status" => "error",
+        "message" => "Database connection failed"
+    ]);
+    exit;
+}
+
+// ============================
+// 2. GET INPUT DATA (JSON)
+// ============================
+$rawData = file_get_contents("php://input");
+$data = json_decode($rawData, true);
+
+// Safety check (VERY IMPORTANT)
+if (!$data) {
+    echo json_encode([
+        "status" => "error",
+        "message" => "Invalid JSON input"
+    ]);
+    exit;
+}
+
+// ============================
+// 3. VALIDATION
+// ============================
+if (
+    !isset($data["user_id"]) ||
+    !isset($data["product_id"]) ||
+    !isset($data["quantity"])
+) {
+    echo json_encode([
+        "status" => "error",
+        "message" => "Missing required data"
+    ]);
+    exit;
+}
+
+// ============================
+// 4. CLEAN DATA
+// ============================
+$user_id = (int) $data["user_id"];
+$product_id = (int) $data["product_id"];
+$quantity = (int) $data["quantity"];
+
+if ($quantity <= 0) {
+    $quantity = 1;
+}
+
+// ============================
+// 5. CHECK EXISTING ITEM
+// ============================
+$check = $conn->prepare("
+    SELECT id, quantity
+    FROM luxe_cart
+    WHERE user_id = ? AND product_id = ?
+");
+
+$check->bind_param("ii", $user_id, $product_id);
+$check->execute();
+
+$result = $check->get_result();
+
+// ============================
+// 6. UPDATE OR INSERT
+// ============================
+if ($result->num_rows > 0) {
+
+    $cartItem = $result->fetch_assoc();
+    $newQuantity = $cartItem["quantity"] + $quantity;
+
+    $update = $conn->prepare("
+        UPDATE luxe_cart
+        SET quantity = ?
+        WHERE id = ?
+    ");
+
+    $update->bind_param("ii", $newQuantity, $cartItem["id"]);
+
+    if ($update->execute()) {
+        echo json_encode([
+            "status" => "success",
+            "message" => "Cart updated"
+        ]);
+    } else {
+        echo json_encode([
+            "status" => "error",
+            "message" => "Failed to update cart"
+        ]);
+    }
+} else {
+
+    $insert = $conn->prepare("
+        INSERT INTO luxe_cart (user_id, product_id, quantity)
+        VALUES (?, ?, ?)
+    ");
+
+    $insert->bind_param("iii", $user_id, $product_id, $quantity);
+
+    if ($insert->execute()) {
+        echo json_encode([
+            "status" => "success",
+            "message" => "Product added to cart"
+        ]);
+    } else {
+        echo json_encode([
+            "status" => "error",
+            "message" => "Failed to add product"
+        ]);
+    }
+}
+
+// ============================
+// 7. CLOSE CONNECTION
+// ============================
+$conn->close();
+?>

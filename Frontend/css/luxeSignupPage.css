@@ -1,0 +1,548 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+/* BODY */
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: url("../assets/img/luxeProductCollection/backgroundImgOfSignup.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* MAIN WRAPPER */
+.luxeSignupPage {
+    width: 90%;
+    max-width: 1000px;
+    display: flex;
+    border-radius: 16px;
+    overflow: hidden;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+}
+
+/* LEFT SIDE */
+.luxeSignupPageCard_1 {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 40px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+
+    color: white;
+}
+
+.luxeLogoImg {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.luxeSignupTitle {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.luxeSignupDescription {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #ddd;
+}
+
+/* RIGHT SIDE */
+.luxeSignupPageCard_2 {
+    flex: 1.2;
+    background: #fff;
+    padding: 45px 40px;
+}
+
+/* FORM TITLE */
+.luxeSignupPageCard_2Title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+/* DESCRIPTION */
+.luxeSignupPageCard_2Description {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+/* INPUT BLOCKS */
+.textInputContainer,
+.emailInputContainer,
+.passwordInputContainer {
+    margin-bottom: 18px;
+}
+
+/* LABEL */
+label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 6px;
+    display: block;
+}
+
+/* INPUT BOX */
+.textInputBox,
+.emailInputBox,
+.passwordInputBox {
+    position: relative;
+}
+
+.passwordInputBox {
+    display: flex;
+    align-items: center;
+}
+
+.passwordInput {
+    width: 100%;
+    padding: 12px 40px 12px 38px;
+    border-radius: 10px;
+    border: 1px solid #e5e5e5;
+    background: #fafafa;
+    outline: none;
+    transition: 0.3s;
+}
+
+/* ICONS */
+.textInputBox i,
+.emailInputBox i,
+.passwordInputBox i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 12px;
+    color: #888;
+    font-size: 14px;
+}
+
+#eyeOpen{
+    display: none;
+}
+
+/* INPUT */
+.textInput,
+.emailInput,
+.passwordInput {
+    width: 100%;
+    padding: 12px 12px 12px 38px;
+    border-radius: 10px;
+
+    border: 1px solid #e5e5e5;
+    background: #fafafa;
+
+    outline: none;
+    transition: 0.3s ease;
+}
+
+.textInput:focus,
+.emailInput:focus,
+.passwordInput:focus {
+    border-color: #000;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
+}
+
+/* PHONE INPUT CONTAINER */
+.phoneInputContainer {
+    margin-bottom: 18px;
+}
+
+/* PHONE LABEL */
+.phoneLabel {
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 6px;
+    display: block;
+}
+
+/* PHONE INPUT BOX */
+.phoneInputBox {
+    position: relative;
+}
+
+/* PHONE ICON */
+.phoneInputBox .fa-phone {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 12px;
+    color: #888;
+    font-size: 14px;
+}
+
+/* PHONE INPUT */
+.phoneInput {
+    width: 100%;
+    padding: 12px 12px 12px 38px;
+    border-radius: 10px;
+
+    border: 1px solid #e5e5e5;
+    background: #fafafa;
+
+    outline: none;
+    transition: 0.3s ease;
+}
+
+/* PHONE FOCUS */
+.phoneInput:focus {
+    border-color: #000;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
+}
+
+/* EYE ICON */
+.passwordInputBox .fa-eye {
+    right: 12px;
+    left: auto;
+    cursor: pointer;
+}
+
+.passwordInputBox .fa-eye-slash {
+    right: 12px;
+    left: auto;
+    cursor: pointer;
+}
+
+/* PASSWORD STRENGTH */
+.checkingBoxContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+    margin-top: 6px;
+}
+
+.checkingBox {
+    visibility: hidden;
+    height: 5px;
+    border-radius: 10px;
+    background: #e5e5e5;
+}
+
+.resultForChecking {
+    font-size: 12px;
+    margin-top: 5px;
+    color: green;
+}
+
+/* BUTTON */
+.signupBtn {
+    width: 100%;
+    padding: 14px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: linear-gradient(135deg, #000, #222);
+    color: white;
+
+    font-weight: 600;
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.signupBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* TERMS */
+.termAndPolicy {
+    text-align: center;
+    font-size: 12px;
+    color: #777;
+    margin-top: 15px;
+}
+
+.mainText {
+    color: #000;
+    font-weight: 600;
+}
+
+/* OR LINE */
+.otherChoiceForSignup {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 12px;
+    color: #888;
+    font-weight: 600;
+}
+
+
+
+.customGoogleBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+
+    cursor: pointer;
+    font-weight: 500;
+
+    transition: 0.2s ease;
+}
+
+.customGoogleBtn:hover {
+    background: #f5f5f5;
+}
+/* LOGIN LINK */
+.askingQuestion {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 13px;
+}
+
+.newAccountLink {
+    color: green;
+    font-weight: 600;
+}
+
+
+/* POPUP OVERLAY */
+.popupOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s ease;
+    z-index: 99999;
+}
+
+/* SHOW POPUP */
+.popupOverlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* POPUP BOX */
+.popupBox {
+    width: 90%;
+    max-width: 420px;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    animation: popupScale .3s ease;
+}
+
+/* ICON */
+.popupIcon {
+    width: 80px;
+    height: 80px;
+
+    margin: auto auto 20px;
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 35px;
+
+    color: white;
+}
+
+/* SUCCESS */
+.popupIcon.success {
+    background: #16a34a;
+}
+
+/* ERROR */
+.popupIcon.error {
+    background: #dc2626;
+}
+
+/* WARNING */
+.popupIcon.warning {
+    background: #f59e0b;
+}
+
+/* TITLE */
+#popupTitle {
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+/* MESSAGE */
+#popupMessage {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* BUTTON */
+#popupBtn {
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: black;
+    color: white;
+
+    cursor: pointer;
+
+    font-weight: 600;
+}
+
+/* ANIMATION */
+@keyframes popupScale {
+
+    from {
+        transform: scale(.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+
+@media (max-width: 992px) {
+
+    .luxeSignupPage {
+        width: 95%;
+    }
+
+    .luxeSignupPageCard_1,
+    .luxeSignupPageCard_2 {
+        padding: 30px;
+    }
+
+}
+
+
+
+@media (max-width: 768px) {
+
+    body {
+        padding: 20px 0;
+    }
+
+    .luxeSignupPage {
+        flex-direction: column;
+        max-width: 550px;
+    }
+
+    .luxeSignupPageCard_1 {
+        text-align: center;
+        align-items: center;
+        padding: 30px 25px;
+    }
+
+    .luxeSignupPageCard_2 {
+        padding: 30px 25px;
+    }
+
+    .luxeSignupTitle {
+        font-size: 24px;
+    }
+
+    .luxeSignupPageCard_2Title {
+        font-size: 24px;
+    }
+
+}
+
+
+
+@media (max-width: 576px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .luxeSignupPage {
+        width: 100%;
+        border-radius: 12px;
+    }
+
+    .luxeSignupPageCard_1 {
+        padding: 25px 20px;
+    }
+
+    .luxeSignupPageCard_2 {
+        padding: 25px 20px;
+    }
+
+    .luxeLogoImg {
+        width: 70px;
+        height: 70px;
+    }
+
+    .luxeSignupTitle {
+        font-size: 20px;
+    }
+
+    .luxeSignupDescription {
+        font-size: 13px;
+    }
+
+    .luxeSignupPageCard_2Title {
+        font-size: 22px;
+    }
+
+    .luxeSignupPageCard_2Description {
+        font-size: 13px;
+    }
+
+    .textInput,
+    .emailInput,
+    .passwordInput,
+    .phoneInput {
+        font-size: 14px;
+    }
+
+    .signupBtn {
+        padding: 12px;
+    }
+
+    .popupBox {
+        padding: 25px 20px;
+    }
+
+    .popupIcon {
+        width: 65px;
+        height: 65px;
+        font-size: 28px;
+    }
+
+    #popupTitle {
+        font-size: 20px;
+    }
+
+}

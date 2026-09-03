@@ -1,0 +1,443 @@
+/* RESET DEFAULT STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+/* GLOBAL FONT STYLE */
+html {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* BODY CENTERING LOGIN PAGE */
+body {
+    background-color: rgba(211, 211, 211, 0.168);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* TOAST BOX */
+.toast {
+    min-width: 240px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.3s ease;
+}
+
+/* SUCCESS */
+.toast.success {
+    background: linear-gradient(135deg, #00b09b, #96c93d);
+}
+
+/* ERROR */
+.toast.error {
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+}
+
+/* ANIMATION */
+@keyframes slideIn {
+    from {
+        transform: translateX(120%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* MAIN LOGIN CONTAINER */
+.luxeLoginPage {
+    padding: 20px;
+    width: 100%;
+    max-width: 450px;
+}
+
+/* TOP BRAND SECTION */
+.luxeLoginPageCard_1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* LOGO IMAGE */
+.luxeImgLogo {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+}
+
+/* BRAND TEXT */
+.luxeLoginPageCard_1 p {
+    font-size: 14px;
+}
+
+/* LOGIN FORM CARD */
+.luxeLoginPageCard_2 {
+    margin: 50px 0 0 0;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+/* INPUT SECTIONS SPACING */
+.emailInputContainer,
+.passwordInputContainer {
+    margin-bottom: 15px;
+}
+
+/* EMAIL INPUT ICON CONTAINER */
+.emailInputBox {
+    position: relative;
+}
+
+/* EMAIL ICON POSITION */
+.emailInputBox i {
+    position: absolute;
+    left: 12px;
+    top: 25%;
+    color: #666;
+}
+
+/* PASSWORD INPUT CONTAINER */
+.passwordInputCard {
+    position: relative;
+}
+
+/* LOCK ICON POSITION */
+.passwordInputCard .fa-lock {
+    position: absolute;
+    left: 12px;
+    top: 37%;
+    transform: translateY(-50%);
+    color: #666;
+    font-size: 14px;
+}
+
+/* EYE ICON (SHOW/HIDE PASSWORD) */
+.passwordInputCard .fa-eye {
+    position: absolute;
+    display: none;
+    right: 10px;
+    top: 10px;
+    color: #666;
+    cursor: pointer;
+}
+
+.passwordInputCard .fa-eye-slash{
+    position: absolute;
+        right: 10px;
+        top: 10px;
+        color: #666;
+        cursor: pointer;
+}
+
+/* INPUT LABELS */
+.emailLabel,
+.passwordLabel {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/* INPUT FIELDS STYLE */
+.emailInput,
+.passwordInput {
+    width: 100%;
+    padding: 12px 12px 12px 36px;
+    margin-bottom: 10px;
+    background-color: rgba(211, 211, 211, 0.305);
+    border: 1px solid #ccc;
+    outline: none;
+    border-radius: 4px;
+}
+
+/* INPUT FOCUS EFFECT */
+.emailInput:focus,
+.passwordInput:focus {
+    border-color: green;
+}
+
+/* REMEMBER ME + FORGOT PASSWORD SECTION */
+.checkboxInputContainer {
+    display: flex;
+    align-items: center;
+    margin: 7px 0 15px 0;
+}
+
+/* CHECKBOX STYLE */
+.checkboxInput {
+    margin-right: 5px;
+}
+
+/* CHECKBOX LABEL */
+.checkboxLabel {
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+/* FORGOT PASSWORD LINK */
+.forgetPasswordLink {
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: auto;
+    color: green;
+}
+
+/* LOGIN BUTTON */
+.loginBtn {
+    width: 100%;
+    padding: 10px;
+    background-color: green;
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* ARROW ICON INSIDE BUTTON */
+.rightArrowImg {
+    width: 16px;
+    height: 16px;
+    padding-top: 1px;
+    margin-left: 8px;
+}
+
+/* BUTTON HOVER EFFECT */
+.loginBtn:hover {
+    background-color: darkgreen;
+}
+
+/* OR CONTINUE WITH TEXT */
+.otherChoiceLogin {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: #666;
+}
+
+/* LEFT LINE OF OR TEXT */
+.otherChoiceLogin::before {
+    content: "";
+    display: inline-block;
+    width: 27%;
+    height: 1px;
+    background-color: #ccc;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+/* RIGHT LINE OF OR TEXT */
+.otherChoiceLogin::after {
+    content: "";
+    display: inline-block;
+    width: 27%;
+    height: 1px;
+    background-color: #ccc;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+
+.googleAuthBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    width: 100%;
+    padding: 12px 18px;
+
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+
+    background: #ffffff;
+    cursor: pointer;
+
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+
+    transition: all 0.25s ease;
+
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.googleAuthBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    border-color: #d0d0d0;
+}
+
+.googleAuthBtn:active {
+    transform: scale(0.98);
+}
+
+.googleIcon {
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.googleIcon img {
+    width: 100%;
+    height: 100%;
+}
+
+/* SIGN UP TEXT */
+.askingQuestion {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 14px;
+}
+
+/* CREATE ACCOUNT LINK */
+.newAccountLink {
+    margin: 0 0 0 5px;
+    color: green;
+    font-weight: 600;
+}
+
+/* =====================================
+   TABLET
+===================================== */
+@media (max-width: 992px) {
+
+    .luxeLoginPage {
+        max-width: 500px;
+        padding: 15px;
+    }
+
+}
+
+
+/* =====================================
+   MOBILE
+===================================== */
+@media (max-width: 768px) {
+
+    body {
+        padding: 20px;
+    }
+
+    .luxeLoginPage {
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .luxeLoginPageCard_2 {
+        margin-top: 30px;
+        padding: 20px 15px;
+    }
+
+    .luxeImgLogo {
+        width: 60px;
+        height: 60px;
+    }
+
+    .luxeLoginPageCard_1 p {
+        font-size: 13px;
+        text-align: center;
+    }
+
+    .checkboxInputContainer {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .forgetPasswordLink {
+        margin-left: 0;
+    }
+
+}
+
+
+/* =====================================
+   SMALL MOBILE
+===================================== */
+@media (max-width: 576px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .luxeLoginPage {
+        padding: 0;
+    }
+
+    .luxeLoginPageCard_2 {
+        padding: 15px;
+    }
+
+    .emailLabel,
+    .passwordLabel {
+        font-size: 14px;
+    }
+
+    .emailInput,
+    .passwordInput {
+        font-size: 14px;
+        padding: 11px 11px 11px 36px;
+    }
+
+    .loginBtn {
+        padding: 12px;
+    }
+
+    .googleAuthBtn {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .askingQuestion {
+        font-size: 13px;
+    }
+
+    .otherChoiceLogin::before,
+    .otherChoiceLogin::after {
+        width: 20%;
+    }
+
+    .toast {
+        min-width: auto;
+        width: calc(100vw - 40px);
+    }
+
+    #toast-container {
+        left: 20px;
+        right: 20px;
+        top: 15px;
+    }
+
+}

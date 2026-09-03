@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxe Signup And Login For Admin Panel Page</title>
+    <link rel="stylesheet" href="../css/luxeSignupLoginToAdminPanel.css">
+</head>
+<body>
+    <div id="toastContainer"></div>
+    <main>
+        <section class="adminPanelSignupAndLoginContainer">
+            <h2>LuxeCommerce</h2>
+            <p>ADMISTRATIVE GATEWAY</p>
+
+            <div class="adminSignUpLoginCards">
+                <div class="adminSignupLoginOptionBtns">
+                    <button class="adminLoginOptionBtn" id="adminLoginOptionBtn">Login</button>
+                    <button class="adminSignupOptionBtn" id="adminSignupOptionBtn">Signup</button>
+                </div>
+
+                <div class="adminSignupLoginOptionContainers">
+                    <div class="adminSignupContainer" id="adminSignupContainer">
+                        <h2>Admin New Account</h2>
+                        <p>Register a new administrator profile</p>
+
+                        <form action="" class="adminSignupForm">
+                            <div class="adminUserNameContainer">
+                                <label for="adminUserName">Full Name</label>
+                                <input type="text" name="" id="adminUserName" placeholder="Beker Ali">
+                            </div>
+
+                            <div class="adminUserEmailContainer">
+                                <label for="adminUserEmail">Email</label>
+                                <input type="text" name="" id="adminUserEmail" placeholder="abc@gmail.com">
+                            </div>
+
+                            <div class="adminUserRoleContainer">
+                                <label for="adminUserRole">Role</label>
+
+                                <div class="adminUserRoleSelect">
+                                    <select id="adminUserRole">
+                                        <option>Super Admin</option>
+                                        <option>Product Manager</option>
+                                        <option>Order Manager</option>
+                                        <option>Customer Support</option>
+                                    </select>
+
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </div>
+                            </div>
+
+                            <div class="adminUserPasswordContainer">
+                                <label for="adminUserPassword">Password</label>
+                                <input type="password" name="" id="adminUserPassword" placeholder="*************">
+                            </div>
+
+                            <button type="submit" class="adminSignupBtn" id="adminSignupBtn">Create Admin Account</button>
+                        </form>
+                    </div>
+
+                    <div class="adminLoginContainer active" id="adminLoginContainer">
+                        <h2>Welcome Back</h2>
+                        <p>Enter your credentials to access the panel</p>
+
+                        <form action="" class="adminLoginForm">
+                            <div class="adminLoginUserEmailContainer">
+                                <label for="adminLoginUserEmail">Email</label>
+                                <input type="email" name="" id="adminLoginUserEmail" placeholder="abc@gmail.com">
+                            </div>
+
+                            <div class="adminLoginUserPasswordContainer">
+                                <div class="adminLoginUserPasswordHeaderContainer">
+                                    <label for="adminLoginUserPassword">Password</label>
+                                    <p>Forget Password?</p>
+                                </div>
+
+                                <input type="password" name="" id="adminLoginUserPassword" placeholder="****************">
+                            </div>
+
+                            <button type="submit" class="adminLoginBtn" id="adminSignupBtn">
+                                Admin Login 
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../javascript/luxeSignupLoginAdminPanel.js"></script>
+</body>
+</html>

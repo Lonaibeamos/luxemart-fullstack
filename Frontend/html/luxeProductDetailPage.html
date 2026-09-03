@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxe Product Details Page</title>
+    <link rel="stylesheet" href="../css/luxeProductDetailPage.css">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+</head>
+<body>
+    <header>
+      <div class="leftSection">
+        <img
+          class="logoImg"
+          src="../assets//img/luxeProductCollection/Luxe E-commerce.png"
+          alt="luxe ecommerce logo"
+        />
+        <!-- Logo name of the website -->
+        <p>LuxeCommerce</p>
+      </div>
+
+      <!-- right menu -->
+      <div class="rightSection">
+        <div class="searchInputContainer">
+          <i
+            class="fa-solid fa-magnifying-glass"
+            style="color: rgb(146, 146, 146)"
+          ></i>
+          <input
+            class="searchInput"
+            placeholder="Search products..."
+            type="search"
+            name=""
+            id="searchInput"
+          />
+        </div>
+        <div class="cartIcon" id="cartIcon">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <div class="cartNotification">0</div>
+        </div>
+        <div class="profileContainer">
+          <i class="fa-regular fa-user"></i>
+        </div>
+      </div>
+    </header>
+
+    <main>
+
+      <div id="toast" class="toast">
+          <i class="fa-solid fa-circle-check"></i>
+          <span id="toastMessage">Product added to cart</span>
+      </div>
+      
+      <section class="productDetailHeader">
+        <div class="breadcrumb">
+          <a href="luxeHomePage.html">Home</a>
+          <span>/</span>
+
+          <a href="luxeProductListPage.html">Product List</a>
+          <span>/</span>
+
+          <a class="active" href="luxeProductDetailPage.html">Product Details</a>
+        </div>
+
+        <div class="pageTitleRow">
+          <h1>Luxe Product Details</h1>
+
+          <a href="luxeProductListPage.html" class="backBtn">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back to Products
+          </a>
+        </div>
+      </section>
+
+      <section class="productDetailPageWrapper">
+        <div class="productDetailsContainer"  id="productDetailsContainer"></div>
+      </section>
+    </main>
+
+    <footer class="modernFooter">
+
+      <div class="footerTop">
+
+        <div class="footerBrand">
+          <h2>LuxeCommerce</h2>
+          <p>Premium shopping experience for electronics, gadgets, and accessories.</p>
+
+          <div class="socialRow">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-youtube"></i>
+          </div>
+        </div>
+
+        <div class="footerLinks">
+          <h3>Shop</h3>
+          <a href="#">All Products</a>
+          <a href="#">Smartphones</a>
+          <a href="#">Computers</a>
+          <a href="#">Accessories</a>
+        </div>
+
+        <div class="footerLinks">
+          <h3>Company</h3>
+          <a href="#">About Us</a>
+          <a href="#">Contact</a>
+          <a href="#">Careers</a>
+          <a href="#">Support</a>
+        </div>
+
+        <div class="footerNewsletter">
+          <h3>Stay Updated</h3>
+          <p>Get latest deals and offers</p>
+
+          <div class="newsletterBox">
+            <input type="email" placeholder="Enter email">
+            <button>Join</button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footerBottom">
+        <p>© 2026 LuxeCommerce. All rights reserved.</p>
+      </div>
+
+    </footer>
+
+    <script src="../javascript/products.js"></script>
+</body>
+</html>

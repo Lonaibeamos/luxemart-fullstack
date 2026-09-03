@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- CHARACTER ENCODING -->
+    <meta charset="UTF-8">
+
+    <!-- RESPONSIVE DESIGN -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- PAGE TITLE -->
+    <title>Luxe Signup Page</title>
+
+    <!-- EXTERNAL CSS FILE -->
+    <link rel="stylesheet" href="../css/luxeSignupPage.css">
+
+    <!-- FONT AWESOME ICON LIBRARY -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+
+<body>
+
+    <!-- MAIN SIGNUP PAGE -->
+    <section class="luxeSignupPage">
+
+        <!-- LEFT / TOP BRAND SECTION -->
+        <div class="luxeSignupPageCard_1">
+
+            <!-- BRAND LOGO -->
+            <img class="luxeLogoImg" src="../assets/img/luxeProductCollection/Luxe E-commerce.png" alt="Luxe E-commerce Logo">
+
+            <!-- MAIN TITLE -->
+            <h1 class="luxeSignupTitle">Elevate Your Experience</h1>
+
+            <!-- DESCRIPTION TEXT -->
+            <p class="luxeSignupDescription">
+                Join the elite circle of shooper who value intelligence, speed and precision in every transaction.
+            </p>
+
+        </div>
+
+        <!-- SIGNUP FORM CARD -->
+        <div class="luxeSignupPageCard_2">
+
+            <form action="" id="signupForm">
+
+                <!-- FORM TITLE -->
+                <h1 class="luxeSignupPageCard_2Title">Create Account</h1>
+
+                <!-- FORM DESCRIPTION -->
+                <p class="luxeSignupPageCard_2Description">
+                    Enter your details to start your journey with us.
+                </p>
+
+                <!-- FULL NAME INPUT SECTION -->
+                <div class="textInputContainer">
+
+                    <!-- FULL NAME LABEL -->
+                    <label class="nameLabel" for="name">Full Name</label>
+
+                    <!-- FULL NAME INPUT BOX -->
+                    <div class="textInputBox">
+
+                        <!-- USER ICON -->
+                        <i class="fa-regular fa-user"></i>
+
+                        <!-- FULL NAME INPUT -->
+                        <input class="textInput"
+                        type="text"
+                        id="name"
+                        placeholder="Abubeker Ali"
+                        required
+                        minlength="3"
+                        maxlength="50"
+                        pattern="^[A-Za-z ]+$">
+
+                    </div>
+
+                </div>
+
+                <!-- EMAIL INPUT SECTION -->
+                <div class="emailInputContainer">
+
+                    <!-- EMAIL LABEL -->
+                    <label class="emailLabel" for="email">Email Address</label>
+
+                    <!-- EMAIL INPUT BOX -->
+                    <div class="emailInputBox">
+
+                        <!-- EMAIL ICON -->
+                        <i class="fa-regular fa-envelope"></i>
+
+                        <!-- EMAIL INPUT -->
+                        <input class="emailInput"
+                        type="email"
+                        id="email"
+                        placeholder="abubeker@example.com"
+                        required>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PHONE NUMBER INPUT SECTION -->
+                <div class="phoneInputContainer">
+
+                    <!-- PHONE LABEL -->
+                    <label class="phoneLabel" for="phone">
+                        Phone Number
+                    </label>
+
+                    <!-- PHONE INPUT BOX -->
+                    <div class="phoneInputBox">
+
+                        <!-- PHONE ICON -->
+                        <i class="fa-solid fa-phone"></i>
+
+                        <!-- PHONE INPUT -->
+                        <input
+                            class="phoneInput"
+                            type="tel"
+                            id="phone"
+                            placeholder="+251912345678"
+                            required
+                            pattern="(\+251|0)[79][0-9]{8}">
+
+                    </div>
+
+                </div>
+
+                <!-- PASSWORD INPUT SECTION -->
+                <div class="passwordInputContainer">
+
+                    <!-- PASSWORD LABEL -->
+                    <label class="passwordLabel" for="password">Password</label>
+
+                    <!-- PASSWORD INPUT BOX -->
+                    <div class="passwordInputBox">
+
+                        <!-- LOCK ICON -->
+                        <i class="fa-solid fa-lock"></i>
+
+                        <!-- PASSWORD INPUT -->
+                        <input 
+                            type="password"
+                            id="password"
+                            class="passwordInput"
+                            placeholder="Enter password"
+                            required
+                            minlength="8"
+                        >
+
+                        <i class="fa-regular fa-eye-slash" id="eyeClose"></i>
+                        <!-- TOGGLE EYE ICON -->
+                        <i class="fa-regular fa-eye" id="eyeOpen"></i>
+
+                    </div>
+
+                    <!-- PASSWORD STRENGTH CHECKING BOXES -->
+                    <div class="checkingBoxContainer">
+
+                        <div class="checkingBox" id="checkBox_1"></div>
+                        <div class="checkingBox" id="checkBox_2"></div>
+                        <div class="checkingBox" id="checkBox_3"></div>
+                        <div class="checkingBox" id="checkBox_4"></div>
+                        
+                    </div>
+
+                    <!-- PASSWORD CHECK RESULT TEXT -->
+                    <p class="resultForChecking" id="resultForChecking"></p>
+
+                </div>
+
+                <!-- SIGNUP BUTTON -->
+                <button class="signupBtn" type="submit"  id="submitBtn">
+
+                    Create Account
+
+                    <!-- RIGHT ARROW ICON -->
+                    <i class="fa-solid fa-arrow-right"
+                    style="color: white; margin-left: 10px; margin-top: 3px;"></i>
+
+                </button>
+
+                <!-- TERMS AND PRIVACY POLICY -->
+                <p class="termAndPolicy">
+
+                    By creating an account, you agree to our
+
+                    <span class="mainText">Terms of Service</span>
+
+                    and
+
+                    <span class="mainText">Privacy Policy</span>.
+
+                </p>
+
+                <!-- OTHER SIGNUP OPTION TEXT -->
+                <p class="otherChoiceForSignup">OR</p>
+
+                <!-- SOCIAL MEDIA SIGNUP SECTION -->
+                <div id="googleBtn" class="customGoogleBtn">
+                    <img src="../assets/icons/icons8-google.svg" alt="">
+                    Continue with Google
+                </div>
+
+
+                <!-- LOGIN LINK -->
+                <p class="askingQuestion">
+
+                    Already have an account?
+
+                    <a class="newAccountLink" href="http://localhost/smart-ecommerce-app/Frontend/html/luxeLoginPage.html">
+                        Login
+                    </a>
+
+                </p>
+
+            </form>
+
+        </div>
+
+    </section>
+
+    <!-- POPUP MESSAGE -->
+    <div class="popupOverlay" id="popupOverlay">
+
+        <div class="popupBox">
+
+            <div class="popupIcon" id="popupIcon">
+                <i class="fa-solid fa-check"></i>
+            </div>
+
+            <h3 id="popupTitle">
+                Success
+            </h3>
+
+            <p id="popupMessage">
+                Account created successfully.
+            </p>
+
+            <button id="popupBtn">
+                Continue
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="../javascript/luxeSignupAuth.js"></script>
+
+
+    <div class="g_id_signin"></div>
+</body>
+</html>

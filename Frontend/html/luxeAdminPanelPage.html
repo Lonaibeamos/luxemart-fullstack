@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxe AdminPanel Page</title>
+    <link rel="stylesheet" href="../css/luxeAdminPanelPage.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <main>
+
+        <section class="addNewProductContainer" id="addNewProductContainer">
+
+            <form id="addProductForm">
+
+                <div class="addNewProductConatinerHeader">
+                    <h2>Add New Product</h2>
+                    <i class="fa-solid fa-x" id="closeAddProductPopup"></i>
+                </div>
+
+                <div class="newProductNameContainer">
+                    <label>Product Name</label>
+                    <input type="text" id="newProduct" placeholder="e.g Samsung M32 5G+">
+                </div>
+
+                <div class="productDescruptionContainer">
+                    <label>Product Description</label>
+                    <textarea id="proDescription"></textarea>
+                </div>
+
+                <div class="newProPriceAndCategoryConatiner">
+
+                    <div class="newProductsPriceContainer">
+                        <label>Price</label>
+                        <input type="number" id="newProductPrice" placeholder="0.00">
+                    </div>
+
+                    <div class="newProductsCategoryConatiner">
+                        <label>Category</label>
+                        <select id="newProductCategory">
+                            <option value="SmartPhones">SmartPhones</option>
+                            <option value="Computers">Computers</option>
+                            <option value="Accessories">Accessories</option>
+                            <option value="Gaming">Gaming</option>
+                            <option value="Watches">Watches</option>
+                            <option value="Computer Components">Computer Components</option>
+                            <option value="Audio devices">Audio devices</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="newProductBrandAndStockContainer">
+
+                    <div class="newProductBrandCard">
+                        <label>Brand</label>
+                        <input type="text" id="newProductBrand">
+                    </div>
+
+                    <div class="newProductStockCard">
+                        <label>Stock Level</label>
+                        <input type="number" id="newProductStock">
+                    </div>
+
+                </div>
+
+                <div class="newProductImgNameConatiner" id="imageUploadBox">
+
+                    <i class="fa-solid fa-upload"></i>
+                    <p id="uploadText">Choose product image</p>
+
+                    <input
+                        type="file"
+                        id="newProductImage"
+                        accept="image/*"
+                        class="fileInput"
+                    >
+
+                    <img
+                        id="imagePreview"
+                        style="display:none;width:100%;margin-top:10px;border-radius:10px;"
+                    >
+
+                </div>
+
+                <!-- KEEP THIS SECTION -->
+                <div class="newProductRatingAndisFeaturedConatiner">
+
+                    <div class="newProductRatingCard">
+
+                        <label for="newProductRating">
+                            Rating (0-5)
+                        </label>
+
+                        <div class="newProductRatingCardConatiner">
+
+                            <input
+                                type="number"
+                                id="newProductRating"
+                                min="0"
+                                max="5"
+                                step="0.1"
+                                placeholder="0.0"
+                            >
+
+                            <div class="ratingStarConatiner">
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="newProductisFeaturedCard">
+
+                        <div class="isFeaturedDetail">
+                            <h3>Is Featured</h3>
+                            <p>Show In Promotional Carousels</p>
+                        </div>
+
+                        <input
+                            type="checkbox"
+                            id="isFeatured"
+                        >
+
+                    </div>
+
+                </div>
+
+                <div class="newProductSubmitContainer">
+                    <button
+                        type="button"
+                        id="submitNewProductBtn"
+                    >
+                        Save Product
+                    </button>
+                </div>
+
+            </form>
+
+        </section>
+
+        <section class="luxeAdminPageContainer">
+            <div class="leftSideAdminPanel">
+                <div class="leftSideHeader">
+                    <img src="../assets/img/luxeProductCollection/Luxe E-commerce.png" alt="Logo of luxeCommerce">
+                    <h1>Luxe Admin Panel</h1>
+                </div>
+                <div class="leftSideContent">
+                    <p>MAIN MENU</p>
+                    <ul>
+                        <li class="activeBtn" id="dashboardBtn"><a href="#">
+                            <i class="fa-solid fa-table-cells-large"></i>
+                            Dashboard
+                        </a></li>
+                        <li id="orderBtn"><a href="#">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                            Orders
+                        </a></li>
+                        <li id="inventoryBtn"><a href="#">
+                            <i class="fa-solid fa-box-archive"></i>
+                            Inventory
+                        </a></li>
+                        <li id="customerBtn"><a href="#">
+                            <i class="fa-solid fa-user-group"></i>
+                            Customers
+                        </a></li>
+
+                        <li id="revenueBtn"><a href="#">
+                            <i class="fa-solid fa-money-bills"></i>
+                            Revenue
+                        </a></li>
+                        <li><a href="#">
+                            <i class="fa-solid fa-gear"></i>
+                            Settings
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+
+            
+
+            <div class="rightSideAdminPanel">
+                <div class="rightSideHeader">
+                    <i class="fa-solid fa-bars menuIcon"></i>
+
+                    <div class="searchBar">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Search...">
+                    </div>
+                    <div class="adminProfile">
+                        <i class="fa-regular fa-bell"></i>
+                        <P id="adminName">Beker Ali Adem</P>
+                        <img id="adminProfileImg" src="../assets/img/luxeProductCollection/Luxe E-commerce.png" alt="Admin Profile Picture">
+                        <i class="fa-solid fa-arrow-right-from-bracket" id="adminLogoutBtn"></i>
+                    </div>
+                </div>
+
+                <div class="rightSideContent">
+                    <div class="dashboardContent" id="dashboardContentContainer">
+                        
+                    </div>
+
+                    <div class="orderContent" id="orderContentContainer">
+                        
+                    </div>
+
+                    <div class="inventoryContent" id="inventoryContentConatiner">
+                        
+                        <div class="inventoryHeader">
+                            <div class="inventoryHeader_1">
+                                <h2>Inventory Management</h2>
+                                <p>Real-time stock monitoring and warehouse control for LuxeCommerce enterprise.</p>
+                            </div>
+                            <div class="inventoryHeader_2">
+                                <button class="adjustStockBtn">
+                                    <i class="fa-solid fa-sliders"></i>
+                                    Adjust Stock
+                                </button>
+
+                                <button class="addProductBtn" id="addProductBtn">
+                                    <i class="fa-solid fa-plus"></i>
+                                    Add Product
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="inventoryCards">
+                            <div class="inventoryCard_1">
+                                <p>TOTAL SKUS</p>
+                                <p id="totalSkus"></p>
+                                <span class="inventoryTrends">+5%</span>
+                            </div>
+                            <div class="inventoryCard_2">
+                                <p>LOW STOCK ALERTS</p>
+                                <p id="lowStock"></p>
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+                            </div>
+                            <div class="inventoryCard_3">
+                                <p>OUT OF STOCK</p>
+                                <p id="outStock"></p>
+                                <span>Items</span>
+                            </div>
+                            <div class="inventoryCard_4">
+                                <p>INVENTORY VALUE</p>
+                                <p id="inventoryValue"></p>
+                                <i class="fa-solid fa-arrow-trend-up"></i>
+                            </div>
+                        </div>
+
+                        <div class="inventoryTableContainer">
+                            <div class="inventoryTableHeader">
+                                <div class="inventorySearchBar">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                    <input type="text" id="inventorySearchInput" placeholder="Search...">
+                                </div>
+
+                                <div class="inventoryIcons">
+                                    <i class="fa-solid fa-filter"></i>
+                                    <i class="fa-solid fa-download"></i>
+                                </div>
+                            </div>
+                            <table class="inventoryTable">
+
+                                <thead>
+                                    <tr>
+                                        <th>PRODUCT DETAILS</th>
+                                        <th>SKU</th>
+                                        <th>CATEGORY</th>
+                                        <th>STOCK LEVEL</th>
+                                        <th>UNIT PRICE</th>
+                                        <th>STATUS</th>
+                                        <th>ACTION</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="tbodyInventoryData"></tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                    <div class="customerContent"  id="customerContentContainer">
+                        
+                        
+                    </div>
+
+
+                    <div class="revenueContent" id="revenueContentConatiner">
+                        
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="overlay" id="overlay"></div>
+
+
+    </main>
+
+    <footer>
+        <h2>LuxeCommerce</h2>
+        <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>            
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Return Policy</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+        <p>&copy; 2024 LuxeCommerce. All rights reserved.</p>
+    </footer>
+
+    <script src="../javascript/luxeAdminPanel.js"></script>
+</body>
+</html>

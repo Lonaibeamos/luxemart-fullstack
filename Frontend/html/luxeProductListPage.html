@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luxe Product List Page</title>
+    <link rel="stylesheet" href="../css/luxeProductListPage.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="leftSection">
+        <img
+          class="logoImg"
+          src="../assets//img/luxeProductCollection/Luxe E-commerce.png"
+          alt="luxe ecommerce logo"
+        />
+        <!-- Logo name of the website -->
+        <p>LuxeCommerce</p>
+      </div>
+
+      <!-- right menu -->
+      <div class="rightSection">
+        <div class="searchInputContainer">
+          <i
+            class="fa-solid fa-magnifying-glass"
+            style="color: rgb(146, 146, 146)"
+          ></i>
+          <input
+            class="searchInput"
+            placeholder="Search products..."
+            type="search"
+            name=""
+            id="searchInput"
+          />
+        </div>
+        <div class="cartIcon">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <div class="cartNotification">0</div>
+        </div>
+        <div class="profileContainer">
+          <i class="fa-regular fa-user"></i>
+        </div>
+      </div>
+    </header>
+
+  
+    <main>
+      <div id="toast" class="toast">
+          <i class="fa-solid fa-circle-check"></i>
+          <span id="toastMessage">Product added to cart</span>
+      </div>
+      <section class="productListHeader">
+
+        <div class="topRow">
+          <div class="breadcrumb">
+            <div class="linkForPages">
+              <a href="luxeHomePage.html">Home</a>
+              <span>/</span>
+              <a href="luxeProductListPage.html">Product List</a>
+            </div>
+          </div>
+
+          <a href="luxeHomePage.html" class="backBtn">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back to Home
+          </a>
+        </div>
+
+      </section>
+
+      <section class="container_1">
+        <h1>Luxe Product List</h1>
+        <p class="welcomingList">Welcome to the Luxe Product List!</p>
+
+        <div class="containerOneCards">
+          <div class="luxeProductListFilter">
+            <h2>CATEGORIES</h2>
+
+            <div class="checkboxOne checkboxCards">
+              <input type="checkbox" name="category" id="category1" checked />
+              <label class="allProductLabel" for="category1"
+                >All Products</label
+              >
+
+              <p class="numberofProductOne">0</p>
+            </div>
+
+            <div class="checkboxTwo checkboxCards">
+              <input
+                type="checkbox"
+                name="category"
+                value="smartphones"
+                id="category2"
+              />
+              <label class="smartphoneLabel" for="category2">Smartphones</label>
+
+              <p class="numberofProductTwo">0</p>
+            </div>
+
+            <div class="checkboxThree checkboxCards">
+              <input
+                type="checkbox"
+                name="category"
+                value="computers"
+                id="category3"
+              />
+              <label class="laptopComputerLabel" for="category3"
+                >Laptops and computers</label
+              >
+
+              <p class="numberofProductThree">0</p>
+            </div>
+
+            <div class="checkboxFour checkboxCards">
+              <input
+                type="checkbox"
+                name="category"
+                value="computer components"
+                id="category4"
+              />
+              <label class="computerComponentsLabel" for="category4"
+                >Computer Components</label
+              >
+
+              <p class="numberofProductFour">0</p>
+            </div>
+
+            <div class="checkboxFive checkboxCards">
+              <input
+                type="checkbox"
+                name="category"
+                value="accessories"
+                id="category5"
+              />
+              <label class="accessoriesLabel" for="category5"
+                >Accessories</label
+              >
+
+              <p class="numberofProductFive">0</p>
+            </div>
+
+            <div class="checkboxSix checkboxCards">
+              <input
+                type="checkbox"
+                name="category"
+                value="watches"
+                id="category6"
+              />
+              <label class="smartWatchesLabel" for="category6"
+                >Smart Watches</label
+              >
+
+              <p class="numberofProductSix">0</p>
+            </div>
+
+            <div class="checkboxSeven checkboxCards">
+              <input
+                type="checkbox"
+                name="category"
+                value="audio devices"
+                id="category7"
+              />
+              <label class="audioDevicesLabel" for="category7"
+                >Audio Devices</label
+              >
+
+              <p class="numberofProductSeven">0</p>
+            </div>
+
+            <div class="priceRangeContainer">
+              <h2>PRICE RANGE</h2>
+              <div class="priceRangeInputContainer">
+                <input
+                  type="number"
+                  name="minPrice"
+                  id="minPrice"
+                  min="0"
+                  placeholder="Min Price"
+                />
+                <span class="priceRangeSeparator">-</span>
+                <input
+                  type="number"
+                  name="maxPrice"
+                  id="maxPrice"
+                  
+                  placeholder="Max Price"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="luxeProductListDescription" id="productContainer"></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="../javascript/products.js"></script>
+  </body>
+</html>

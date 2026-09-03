@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxe Checkout Page</title>
+    <link rel="stylesheet" href="../css/luxeCheckoutPage.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+</head>
+<body>
+    <header>
+      <div class="leftSection">
+        <img
+          class="logoImg"
+          src="../assets//img/luxeProductCollection/Luxe E-commerce.png"
+          alt="luxe ecommerce logo"
+        />
+        <!-- Logo name of the website -->
+        <p>LuxeCommerce</p>
+      </div>
+
+      <!-- right menu -->
+      <div class="rightSection">       
+        <div class="cartIcon">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <div class="cartNotification">0</div>
+        </div>
+        <div class="profileContainer">
+          <i class="fa-regular fa-user"></i>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="transactionCardContainer" id="transactionCardContainer">
+      </section>
+
+      <div id="toastContainer"></div>
+
+      <section  class="luxeCheckoutPageWrapper">
+        <div class="luxeCheckoutContainer">
+          <div class="luxeCheckoutContainer_1">
+            <h2>Secure Checkout</h2>
+            <p class="checkoutTitle_1">
+              <span>1</span>
+              Shipping Address
+            </p>
+
+            <div class="shoppingAddressRequirment">
+              <form action="">
+                <div>
+                  <label for="firstName">First Name</label>
+                  <input type="text" name="" id="firstName" placeholder="Beker">
+
+                  <label for="lastName">Last Name</label>
+                  <input type="text" name="" id="lastName" placeholder="Ali">
+                </div>
+
+                <div>
+                  <label for="streetAddress">Street Address</label>
+                  <input type="text" name="" id="streetAddress" placeholder="123 Luxury Ave , Suite 400">
+                </div>
+
+
+                <div>
+                  <label for="city">City</label>
+                  <input type="text" name="" id="city" placeholder="Addiss Abeba">
+
+                  <label for="state">State / Region</label>
+
+                  <select name="state" id="state">
+                    <option value="">Select State</option>
+
+                    <option value="addis_ababa">Addis Ababa</option>
+                    <option value="afar">Afar</option>
+                    <option value="amhara">Amhara</option>
+                    <option value="benishangul_gumuz">Benishangul-Gumuz</option>
+                    <option value="dire_dawa">Dire Dawa</option>
+                    <option value="gambela">Gambela</option>
+                    <option value="harari">Harari</option>
+                    <option value="oromia">Oromia</option>
+                    <option value="sidama">Sidama</option>
+                    <option value="southern_ethiopia">Southern Ethiopia</option>
+                    <option value="somali">Somali</option>
+                    <option value="tigray">Tigray</option>
+                  </select>
+                </div>
+              </form>
+            </div>
+
+            <p class="checkoutTitle_1">
+              <span>2</span>
+              Payment Method
+            </p>
+
+            <div class="paymentMethodContainer">
+              <div class="paymentOptions">
+                <div class="paymentOption_1 active" id="bankOption">
+                  <i class="fa-solid fa-building-columns"></i>
+                  <div class="paymentOneDescription">
+                    <p>Bank Transfer</p>
+                    <p>Pay via direct bank transfer</p>
+                  </div>
+                </div>
+
+                <div class="paymentOption_2" id="cashOption">
+                  <i class="fa-solid fa-dollar-sign"></i>
+                  <div class="paymentTwoDescription">
+                    <p>Cash on Delivery</p>
+                    <p>Pay when order arrives</p>
+                  </div>
+                </div>
+
+                <hr>
+
+                <div class="paymentOptionCards">
+                  <div class="paymentOptioncardBankTransfer">
+                    <div class="bankTransfer_1">
+                      <p>ACCOUNT NAME</p>
+                      <p>LuxeCommerce</p>
+                    </div>
+
+                    <div class="bankTransfer_2">
+                      <p>BANK NAME</p>
+                      <p> Commercial Bank of Ethiopia</p>
+                    </div>
+
+                    <div class="bankTransfer_3">
+                      <p>ACCOUNT NUMBER</p>
+                      <p>1000236541234</p>
+                    </div>
+
+                    <div class="receiptPaperContainer">
+                      <i class="fa-solid fa-circle-exclamation"></i>
+                      <p>Please transfer the exact amount and upload your transfer receipt below for faster verification.</p>
+
+                      <div class="receiptPaper">
+
+                        <label for="receiptImage" class="receiptPaper">
+                            <i class="fa-regular fa-file-image"></i>
+                            <span>Upload Receipt</span>
+                        </label>
+
+                        <input type="file" id="receiptImage" accept="image/*" hidden>
+
+                      </div>
+                    </div>
+
+
+                  </div>
+
+                  <div class="paymentOptioncardCash">
+                    <div class="cash_1">
+                      <p>Pay with cash upon delivery</p>
+                      <p>Please ensure you have the exact amount ready for our courier to facilate a smooth transaction</p>
+                    </div>
+
+                    <div class="cash_2">
+                      SUMMARY : No additional fee apply for this payment method.
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+          
+          <div class="luxeCheckoutContainer_2">
+
+              <h2>Order Summary</h2>
+
+              <!-- PRODUCTS LIST -->
+              <div id="orderItemsContainer" class="orderItemsContainer"></div>
+
+              <div class="itemsTotalContainer">
+                  <p>Subtotal</p>
+                  <p id="subTotal">$0</p>
+              </div>
+
+              <div class="shipping">
+                  <p>Shipping</p>
+                  <p>FREE</p>
+              </div>
+
+              <div class="itemsTaxeContainer">
+                  <p>Tax</p>
+                  <p id="taxAmount">$0</p>
+              </div>
+
+              <hr>
+
+              <div class="totalAmountContainer">
+                  <p>TOTAL</p>
+                  <p id="totalAmount">$0</p>
+              </div>
+
+              <button type="submit" class="payBtn" id="payBtn">
+                  <i class="fa-solid fa-lock"></i>
+                  complete Payment
+              </button>
+
+          </div>
+        </div>
+
+      </section>
+    </main>
+
+
+    <script src="../javascript/luxeCheckout.js"></script>
+</body>
+</html>

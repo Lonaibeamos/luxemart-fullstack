@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luxe Login Page</title>
+
+    <!-- External CSS file -->
+    <link rel="stylesheet" href="../css/luxeLoginPage.css">
+
+    <!-- Font Awesome icons library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+  </head>
+
+  <body>
+    <!-- TOAST POPUP CONTAINER -->
+    <div id="toast-container"></div>
+    <!-- MAIN LOGIN SECTION -->
+    <section class="luxeLoginPage">
+
+        <!-- LEFT / TOP BRAND AREA -->
+        <div class="luxeLoginPageCard_1">
+
+            <!-- Company Logo -->
+            <img class="luxeImgLogo" src="../assets/img/luxeProductCollection/Luxe E-commerce.png" alt="Luxe Ecommerce Logo">
+
+            <!-- Website Name -->
+            <h1>LuxeCommerce</h1>
+
+            <!-- Tagline -->
+            <p>Professional Excsllence in Every Transaction</p>
+
+        </div>
+
+        <!-- LOGIN FORM CARD -->
+        <div class="luxeLoginPageCard_2">
+
+          <form action="" id="loginForm">
+
+            <!-- EMAIL INPUT SECTION -->
+            <div class="emailInputContainer">
+
+              <!-- Email Label -->
+              <label class="emailLabel" for="email">
+                Email Address
+              </label>
+
+              <!-- Email Input Box with icon -->
+              <div class="emailInputBox">
+
+                <!-- Email icon -->
+                <i class="fa-regular fa-envelope"></i>
+
+                <!-- Email input field -->
+                <input class="emailInput"
+                placeholder="name@google.com"
+                type="email"
+                id="email"
+                name="email"
+                required>
+
+              </div>
+            </div>
+
+            <!-- PASSWORD INPUT SECTION -->
+            <div class="passwordInputContainer">
+
+              <!-- Password Label -->
+              <label class="passwordLabel" for="password">
+                Password
+              </label>
+
+              <!-- Password input box with icons -->
+              <div class="passwordInputCard">
+
+                <!-- Lock icon -->
+                <i class="fa-solid fa-lock"></i>
+
+                <!-- Password input field -->
+                <input class="passwordInput"
+                placeholder="••••••••"
+                type="password"
+                id="password"
+                name="password"
+                required>
+
+
+
+                <i class="fa-solid fa-eye" id="eyeOpenIcon"></i>
+                <i class="fa-solid fa-eye-slash" id="eyeCloseIcon"></i>
+              </div>
+            </div>
+
+            <!-- REMEMBER + FORGOT PASSWORD -->
+            <div class="checkboxInputContainer">
+
+              <!-- Remember me checkbox -->
+              <input class="checkboxInput" type="checkbox" id="remember" name="remember">
+
+              <!-- Remember label -->
+              <label class="checkboxLabel" for="remember">Remember Me</label>
+
+              <!-- Forgot password link -->
+              <a class="forgetPasswordLink" href="#">Forget Password?</a>
+
+            </div>
+
+            <!-- LOGIN BUTTON -->
+            <button class="loginBtn" type="submit">
+
+              <!-- Button text -->
+              Login to Account
+
+              <!-- Arrow icon -->
+              <i class="fa-solid fa-arrow-right"
+              style="color: white; margin-left: 10px; margin-top: 3px;"></i>
+
+            </button>
+
+            <!-- SOCIAL LOGIN TITLE -->
+            <p class="otherChoiceLogin">OR CONTINUE WITH</p>
+
+            <!-- SOCIAL LOGIN BUTTONS -->
+             <div id="googleBtn" class="googleAuthBtn">
+
+                  <div class="googleIcon">
+                      <img src="../assets/icons/icons8-google.svg" alt="Google">
+                  </div>
+
+                  <span>Continue with Google</span>
+
+              </div>
+
+          </form>
+        </div>
+
+        <!-- SIGN UP SECTION -->
+        <p class="askingQuestion">
+          Don't have an account yet?
+          <a class="newAccountLink" href="http://localhost/smart-ecommerce-app/Frontend/html/luxeSignupPage.html">
+            Create an Account
+          </a>
+        </p>
+
+    </section>
+
+    <script src="../javascript/luxeLoginAuth.js"></script>
+  </body>
+</html>

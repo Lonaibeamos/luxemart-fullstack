@@ -1,0 +1,147 @@
+<?php
+
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+
+    header("Content-Type: application/json");
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Methods: POST");
+    header("Access-Control-Allow-Headers: Content-Type");
+
+    include_once __DIR__ . "/../config/luxe_database.php";
+
+    if (!$conn) {
+        echo json_encode([
+            "status" => "error",
+            "message" => "Database connection failed"
+        ]);
+        exit;
+    }
+
+    // INPUT
+    $data = json_decode(file_get_contents("php://input"), true);
+
+    if (!$data) {
+        echo json_encode([
+            "status" => "error",
+            "message" => "Invalid JSON input"
+        ]);
+        exit;
+    }
+
+    $user_id = (int) $data["user_id"];
+    $product_id = (int) $data["product_id"];
+    $quantity = (int) $data["quantity"];
+
+    if ($quantity <= 0) $quantity = 1;
+
+    // 1. CHECK PRODUCT STOCK
+    $productStmt = $conn->prepare("
+            SELECT stock 
+            FROM luxe_products 
+            WHERE id = ?
+        ");
+
+    $productStmt->bind_param("i", $product_id);
+    $productStmt->execute();
+    $productResult = $productStmt->get_result();
+
+    if ($productResult->num_rows === 0) {
+        echo json_encode([
+            "status" => "error",
+            "message" => "Product not found"
+        ]);
+        exit;
+    }
+
+    $product = $productResult->fetch_assoc();
+    $stock = (int) $product["stock"];
+
+    // ❌ OUT OF STOCK CHECK
+    if ($stock <= 0) {
+        echo json_encode([
+            "status" => "error",
+            "message" => "Product is out of stock"
+        ]);
+        exit;
+    }
+
+    // 2. CHECK EXISTING CART ITEM
+    $check = $conn->prepare("
+            SELECT id, quantity 
+            FROM luxe_cart 
+            WHERE user_id = ? AND product_id = ?
+        ");
+
+    $check->bind_param("ii", $user_id, $product_id);
+    $check->execute();
+    $result = $check->get_result();
+
+    // 3. UPDATE OR INSERT SAFELY
+    if ($result->num_rows > 0) {
+
+        $cartItem = $result->fetch_assoc();
+        $currentQty = (int) $cartItem["quantity"];
+        $newQty = $currentQty + $quantity;
+
+        // ❌ BLOCK OVER STOCK
+        if ($newQty > $stock) {
+            echo json_encode([
+                "status" => "error",
+                "message" => "Cannot add more than available stock"
+            ]);
+            exit;
+        }
+
+        $update = $conn->prepare("
+                UPDATE luxe_cart 
+                SET quantity = ? 
+                WHERE id = ?
+            ");
+
+        $update->bind_param("ii", $newQty, $cartItem["id"]);
+
+        if ($update->execute()) {
+            echo json_encode([
+                "status" => "success",
+                "message" => "Cart updated"
+            ]);
+        } else {
+            echo json_encode([
+                "status" => "error",
+                "message" => "Failed to update cart"
+            ]);
+        }
+    } else {
+
+        // ❌ BLOCK INSERT IF QUANTITY > STOCK
+        if ($quantity > $stock) {
+            echo json_encode([
+                "status" => "error",
+                "message" => "Not enough stock"
+            ]);
+            exit;
+        }
+
+        $insert = $conn->prepare("
+                INSERT INTO luxe_cart (user_id, product_id, quantity)
+                VALUES (?, ?, ?)
+            ");
+
+        $insert->bind_param("iii", $user_id, $product_id, $quantity);
+
+        if ($insert->execute()) {
+            echo json_encode([
+                "status" => "success",
+                "message" => "Product added to cart"
+            ]);
+        } else {
+            echo json_encode([
+                "status" => "error",
+                "message" => "Failed to add product"
+            ]);
+        }
+    }
+
+    $conn->close();
+?>
