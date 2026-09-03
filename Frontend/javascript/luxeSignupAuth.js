@@ -215,7 +215,7 @@ window.onload = function () {
                     localStorage.setItem("isLoggedIn", "true");
 
                     setTimeout(() => {
-                        window.location.href = "http://localhost/smart-ecommerce-app/Frontend/html/luxeHomePage.html";
+                        window.location.href = "/luxemart-fullstack/Frontend/html/luxeHomePage.html";
                     }, 1000);
                 }
 

@@ -124,7 +124,7 @@ loginForm.addEventListener("submit", async (e) => {
             localStorage.setItem("admin_role", data.admin.role);
 
             setTimeout(() => {
-                window.location.href = "http://localhost/smart-ecommerce-app/Frontend/html/luxeAdminPanelPage.html";
+                window.location.href = "/luxemart-fullstack/Frontend/html/luxeAdminPanelPage.html";
             }, 800);
 
         } else {

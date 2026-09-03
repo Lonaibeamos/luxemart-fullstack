@@ -1059,7 +1059,7 @@ document.addEventListener("DOMContentLoaded", () => {
             localStorage.removeItem("token"); // if you use token
 
             // redirect to login page
-            window.location.href = "http://localhost/smart-ecommerce-app/Frontend/html/luxeSignupLoginToAdminPanel.html";
+            window.location.href = "/luxemart-fullstack/Frontend/html/luxeSignupLoginToAdminPanel.html";
         });
     }
 

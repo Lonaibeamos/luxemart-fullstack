@@ -344,6 +344,6 @@ function displayTransactionData(transaction){
     document.getElementById("continueShoppingBtn")
         .addEventListener("click", () => {
             window.location.href =
-            "http://localhost/smart-ecommerce-app/Frontend/html/luxeProductListPage.html";
+            "/luxemart-fullstack/Frontend/html/luxeProductListPage.html";
         });
 }

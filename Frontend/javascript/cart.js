@@ -319,7 +319,7 @@ document.addEventListener("DOMContentLoaded", () => {
             e.preventDefault();
 
             window.location.href =
-                "http://localhost/smart-ecommerce-app/Frontend/html/luxeCheckoutPage.html";
+                "/luxemart-fullstack/Frontend/html/luxeCheckoutPage.html";
         });
     }
 

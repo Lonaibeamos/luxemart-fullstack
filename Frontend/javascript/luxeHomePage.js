@@ -57,20 +57,20 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.getElementById("loginBtn").addEventListener('click' , ()=>{
-    window.location.href = 'http://localhost/smart-ecommerce-app/Frontend/html/luxeLoginPage.html';
+    window.location.href = '/luxemart-fullstack/Frontend/html/luxeLoginPage.html';
 })
 
 document.getElementById("signupBtn").addEventListener('click' , ()=>{
-    window.location.href = 'http://localhost/smart-ecommerce-app/Frontend/html/luxeSignupPage.html';
+    window.location.href = '/luxemart-fullstack/Frontend/html/luxeSignupPage.html';
 })
 
 document.getElementById("shopCollection").addEventListener('click' , ()=>{
-    window.location.href = 'http://localhost/smart-ecommerce-app/Frontend/html/luxeProductListPage.html';
+    window.location.href = '/luxemart-fullstack/Frontend/html/luxeProductListPage.html';
 })
 
 
 document.getElementById("cartIcon").addEventListener('click' , ()=>{
-    window.location.href = "http://localhost/smart-ecommerce-app/Frontend/html/luxeProductCartPage.html"
+    window.location.href = "/luxemart-fullstack/Frontend/html/luxeProductCartPage.html"
 })
 let allProducts = [];
 
@@ -319,7 +319,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (cartNotification) cartNotification.textContent = "0";
 
             // 6. Redirect (optional but good UX)
-            window.location.href = "http://localhost/smart-ecommerce-app/Frontend/html/luxeHomePage.html";
+            window.location.href = "/luxemart-fullstack/Frontend/html/luxeHomePage.html";
         });
     }
 });
@@ -615,7 +615,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // 3. REDIRECT TO HOME PAGE
             window.location.href =
-                "http://localhost/smart-ecommerce-app/Frontend/html/luxeHomePage.html";
+                "/luxemart-fullstack/Frontend/html/luxeHomePage.html";
 
             profileContainer.style.display = "none";
         });

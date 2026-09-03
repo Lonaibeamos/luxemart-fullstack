@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 setTimeout(() => {
                     window.location.href =
-                    "http://localhost/smart-ecommerce-app/Frontend/html/luxeHomePage.html";
+                    "/luxemart-fullstack/Frontend/html/luxeHomePage.html";
                 }, 1000);
             }
 
@@ -169,7 +169,7 @@ window.onload = function () {
 
                     setTimeout(() => {
                         window.location.href =
-                        "http://localhost/smart-ecommerce-app/Frontend/html/luxeHomePage.html";
+                        "/luxemart-fullstack/Frontend/html/luxeHomePage.html";
                     }, 1000);
 
                 } else {
